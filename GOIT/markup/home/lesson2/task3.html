@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+<form>
+    <p>Name<br/>
+        <input type="text" name="name"/> </p>
+    <p>Email<br/>
+        <input tyoe="email" name="email"/></p>
+    <p>Sex <br/>
+        <input type="radio" name="sex" value="male"/> Male
+        <input type="radio" name="sex" value="female"/> Female</p>
+    <p>Current status <br/>
+        <input type="checkbox" name="status" value="student"/>Student<br/>
+        <input type="checkbox" name="status" value="employedt"/>Employed<br/>
+        <input type="checkbox" name="status" value="unemployed"/>Unemployed
+    </p>
+    <p>
+        Month and Year of Birth<br/>
+        <select name="month">
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+        </select>
+        <select name="year">
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+        </select>
+    </p>
+    <p>
+        Skills and Technologies<br/>
+        <select name="skills" size="10" multiple="multiple">
+            <optgroup label="Tech skills"></optgroup>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="git">git</option>
+            <optgroup label="Soft skills"></optgroup>
+            <option value="time management">Time management</option>
+            <option value="proactivity">Proactivity</option>
+            <option value="teamwork">Teamwork</option>
+            <option value="leadership">Leadership</option>
+        </select>
+    </p>
+        Photo<br/>
+        <input type="file" name="photo" value="Choose file">
+    </p>
+    <p>
+        Comments<br/>
+        <textarea name="comments" rows="5" cols="25"></textarea>
+    </p>
+        <input type="submit" value="Save">
+    </p>
+</form>
+</body>
+</html>
