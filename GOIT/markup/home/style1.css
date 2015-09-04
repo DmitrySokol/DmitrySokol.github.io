@@ -1,4 +1,3 @@
-body {margin:0;}
 div{background: #8a2be2; font-family: Economica ; text-transform: uppercase;}
 .menu{width: 900px; margin: auto; font: bold 20px Economica;}  /* для наглядности background: rgb(100,200,200)*/
 a{display:inline-block; color: white; padding: 5px 20px; box-sizing: border-box; width: 125px; text-align: center; text-decoration: none;} /* для наглядности border: 1px solid #000;*/
