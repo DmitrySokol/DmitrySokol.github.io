@@ -1,7 +1,0 @@
-div{background: #8a2be2; text-transform: uppercase;}  /* overflow: hidden; вместо class="clear"!!!*/
-.menu{width: 900px; margin: auto; }  /* для наглядности background: rgb(100,200,200)*/
-a{display:block; color: white; padding: 5px 20px; box-sizing: border-box; width: 125px; text-align: center; text-decoration: none;
-    float:left; font: bold 20px Economica;} /* для наглядности border: 1px solid #000;*/
-a:hover, a:focus{background:lightgrey; color: #8892A4;}
-.more {float: right; margin-right: 30px;}
-.clear{clear: right;}
