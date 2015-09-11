@@ -1,0 +1,42 @@
+body {background: url("../images/background.png");}
+h2 {text-transform: uppercase; color: #3271A9; text-align: center;}
+.container {
+    width: 80%;
+    margin: auto;
+    white-space: nowrap;
+    min-width: 1200px;
+}
+span {color: #EE822A;}
+.first, .second, .testimonial {display: inline-block;}
+.first, .second {
+    width: 40%;
+    margin: 2%;
+    vertical-align: top;
+    position: relative;
+}
+.testimonial {
+    background: white;
+    vertical-align: top;
+    width: 70%;
+    white-space: normal;
+    margin: 0 20px;
+    padding: 15px;
+}
+img {height: 100px; vertical-align: top;}
+
+.customer {color: #3271A9; border-bottom: 1px dashed black;}
+.customer::before {
+    content: "-";  /*не ставится длинное тире — (Alt 0151)*/
+}
+.customer::after {
+    content: "Customer";
+    float: right;
+}
+.testimonial::before{
+    position: absolute;
+    top: 35px;
+    left: 100px;
+    border: 15px solid;  /*или border: 15px solid transparent; border-right: 15px solid #ffffff;*/
+    border-color: transparent white transparent transparent;
+    content: '';
+}

@@ -1,0 +1,77 @@
+.container {
+    margin: 40px;
+    overflow: hidden;
+    text-align: center;                  /*наследуется*/
+    font: 18px bold Trebuchet MS, Impact serif; /*наследуется*/
+}
+h2 {text-align: left; text-transform: uppercase; margin-left: 35px;}
+.center {
+    float: left;
+    width: 296px;
+    border: 3px solid #EE822A;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px #CBE2EF;
+    margin: 10px 0;             /*для отображения верхнего border*/
+    text-transform: uppercase;
+
+    font: 18px bold Trebuchet MS, serif;
+}
+.left, .right {
+    float: left;
+    border: 1px solid #E8EAEC;
+    width: 296px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    -text-align: center;
+    -font: 18px bold Trebuchet MS, serif;
+    margin-top: 30px;
+}
+.center .header {
+    background: #EE822A;
+    color:white;
+    padding: 30px;
+}
+.left .header {background: #38C2D3; color:white; padding: 21px; border-top-left-radius: 5px; }
+.right .header {background: #1EB79B; color:white; padding: 21px; border-top-right-radius: 5px; }
+.price {
+    color: #364A5B;
+    font-family: "Trebuchet MS", serif;
+    font-weight: bold;
+}
+span {font-size: 60px;}
+.sign {position: relative; top: -32px; font-size: 18px;}
+.time {position: relative; top: 5px; font-size: 16px; text-transform: capitalize;}
+ul {
+    list-style-type: none;
+    text-align: left;
+    text-transform: none;
+    font-weight: normal;
+    padding: 0;
+    margin: auto;
+    width: 90%;
+    color: #898D95;
+    font-size: 14px;
+}
+li {margin-bottom: 1px; padding: 5px 40px;}
+li:nth-of-type(odd) {background: #EDF5FD ;}
+li:nth-of-type(even) {background: #F5F5F6;}
+li::before{
+    content: url("../images/marker.png");
+    padding-right: 15px;
+}
+input[name="enroll"] {
+    background: #EE822A;
+    color: white;
+    width: 85%;
+    margin: 25px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
+    border-bottom: 3px solid #B3570D;
+}
+input[id=standart], input[id=ultimate] {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;}
+input:hover, input:focus { border-color: transparent;}
+
+-#standart {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;} /* если навешивать стили на элемент через id(#), то и остальная работа с этим элементом должна вестись через id(#)*/
+-#standart:hover { border-color: transparent;}
