@@ -1,10 +1,32 @@
 body {margin:0;}
-div {background: #FAFAFA; text-transform: uppercase; font: bold 20px Economica; overflow: hidden;  }  /* overflow: hidden; вместо class="clear"!!!*/  /*#8a2be2;*/
-.page{width: 700px; margin: auto; }  /* для наглядности background: rgb(100,200,200)*/
-a{display:inline-block; color: #8a2be2; text-align: center; text-decoration: none; float: left; border: 1px solid #8a2be2;
-padding: 5px 10px; margin: 10px 5px; border-radius: 8px;} /* для наглядности border: 1px solid #000;*/
+div {
+    background: #FAFAFA;
+    text-transform: uppercase;
+    font: bold 20px Economica;
+    overflow: hidden;
+}  /* overflow: hidden; вместо class="clear"!!!*/  /*#8a2be2;*/
+.pager{
+    width: 700px;
+    margin: auto;
+    border: 1px solid #c0c0c0;
+}  /* для наглядности background: rgb(100,200,200)*/
+a{
+    display:inline-block;
+    color: #8a2be2;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    border: 1px solid #8a2be2;
+    padding: 5px 10px;
+    margin: 10px 5px;
+    border-radius: 8px;
+} /* для наглядности border: 1px solid #000;*/
 a:hover, a:focus{background:#8a2be2; color: #fff;}
 .first:before, .prev:before {content: "<<  "; }
 .first, .prev, .next, .last {border-color: transparent;}
 .next:after, .last:after {content: "  >>"; }
-.dots {float: left; padding: 5px 10px; margin: 20px 5px 0;}
+.dots {
+    float: left;
+    padding: 5px 10px;
+    margin: 20px 5px 0;
+}
