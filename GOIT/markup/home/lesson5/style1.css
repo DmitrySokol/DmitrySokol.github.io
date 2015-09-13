@@ -11,27 +11,37 @@ div{
     -position: relative;
     width: 900px;
     margin: auto;
-    font-family: Impact;
+    font-family: Impact, Economica;
+    letter-spacing: .9px;
     font-weight: normal;
     font-size: 18px;
 }
+.menu li ul {}
 
-.subtravels {display: none; position: absolute; left: 0; right: 0;  background: #eee;}
+.subtravels {display: none; position: absolute; left: 0; right: 0;  background: #eee; box-shadow: 0 2px 2px 1px #e2e2e2;}
 .subtravels ul {width: 900px; margin: auto;}
 li {display: inline-block;}
 a{
     display:inline-block;
     color: white;
-    padding: 5px 10px;
+    padding: 5px 9px;
     text-align: center;
     text-decoration: none;
 } /* для наглядности border: 1px solid #000;*/
 .subtravels li { float: left; }  /* float: left; убирает пробельные символы между inline-block   */
 .subtravels a {
-
     color: #a1a1a1;
     text-transform: capitalize;
 }
-.menu a:hover, .menu a:active, .menu a:focus {background: #eee; color: #a1a1a1;}
-li.travels:hover .subtravels  {display: block;}
--.subtravels a:hover {display: inline-block;}
+li:hover a {background: #eee; color: #a1a1a1;} /*Если указывать li как контейнер для а, то когда курсор смещается на субменю, пункт меню остается подсвеченный*/
+-.menu a:hover, .menu a:active, .menu a:focus {background: #eee; color: #a1a1a1;}
+li.travels:hover .subtravels, li.travels:focus .subtravels, li.travels:active .subtravels  {display: block;}
+
+.subtravels li:hover {font-family: Economica;}  /* font-family - наследуется*/
+.subtravels li:hover a{color: #1aa4ff;}         /* color: - не наследуется, т.к. выше по коду есть - .subtravels a { color: #a1a1a1;} - у которого приоритет выше.
+-  .subtravels ul li {color: red;} - для наглядной проверки приоритетности через "Инструменты разработчика" в Chrome или Inspector по Cntrl+Shift+I или F12*/
+
+/*Если указывать а (a.travels:hover ~.subtravels), то подменю исчезает при попытке на него перейти*/
+/*Если указывать li как контейнер для а, то подменю не исчезает при попытке на него перейти*/
+/*:focus, :active, :hover{outline: 1px solid black;}*/
+
