@@ -1,0 +1,63 @@
+.arrow-gradient {
+    background: #FFCC67;
+    -width: 90%;
+    min-width: 800px;
+    -display: inline-block;
+    position: relative;
+    /*margin-right: 36px;*/
+    background: -webkit-linear-gradient(top, #fbc98b, #ebbb4d);
+    background: -o-linear-gradient(top, #fbc98b, #ebbb4d) ;
+    background: linear-gradient(to top, #fbc98b, #ebbb4d) ;
+}
+.query {
+    margin: 10px;
+    border: none;
+    height: 30px;
+    width: 85%;
+    border-top: 1px solid #a3a3a3;
+    webkit-box-shadow: inset 0 0 1px 1px #e5e5e5;
+    box-shadow: inset 0 0 1px 1px #e5e5e5;
+}
+input#query:focus {
+    webkit-box-shadow: inset 0 0 1px 1px #ccc;
+    box-shadow: inset 0 0 1px 1px #ccc;
+    border-top: 1px solid #a3a3a3;
+}
+#find {margin-right: 75px; height: 30px;}
+.arrow-gradient::before {content: '';}
+
+.arrow-gradient::after {
+    content: "";
+    -height: 100%;
+    border: 37px solid #fff; border-left: 26px solid transparent;
+    display: inline-block;
+    position: absolute;
+    right: 0px; top: 0;
+    vertical-align: top;
+}
+#find:hover {
+    border: 2px solid transparent;
+    background: #e5e5e5;
+}
+#find:focus {
+    border: 2px solid transparent;
+    background: #e5e5e5;
+    color: #e3a62d;
+}
+input#search:hover ~ label{
+    color: rgba(0,0,0,.8);
+}
+input#search:checked ~ label{
+    color: rgba(0,0,0,.6);
+}
+.arrow-gradient p {display: inline-block; margin: 0 10px 5px; }
+.arrow-gradient a {color: inherit; text-decoration: none; border-bottom: 1px dotted;}
+.arrow-gradient p a:hover{
+    border: none;
+}
+.arrow-gradient p a:focus{
+    color: rgba(0,0,0,.6);
+    border-bottom: 1px solid transparent;
+}
+
+
