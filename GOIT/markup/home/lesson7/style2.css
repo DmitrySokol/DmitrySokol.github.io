@@ -1,0 +1,192 @@
+body {margin: 0; min-width: 1023px;}
+@font-face{
+    font-family: 'Futura';
+    src:url(fonts/futura.woff);
+}
+@font-face{
+    font-family: 'Futura bold';
+    src: url(fonts/futura bold.ttf);
+}
+.main {width: 1023px; margin: 0 auto; font-family: "Trebuchet MS";}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+header {text-transform: uppercase;  position: relative; }
+.logo, header ul, header ul li, .main a {display: inline-block; }
+
+.logo {width: 292px; height: 59px; margin: 20px 0 15px; background: url(images/logo.png)}   /* для резервирования места под картинку */
+.menu {
+    padding: 0;
+    list-style-type: none;
+    margin: 40px 50px;
+    float: right;     /*извлекается из основного потока, поэтому если оставить блок родителя пустыым, то float элемент будет идти за этим родителем*/
+    -vertical-align: bottom;            /* не работает , потому что элемент вне основного потока. Должен выравниваться относительно таких же элементов вне потока*/
+    color: #989898;
+    font-family: 'Open Sans', sans-serif; font-size: 14px; font-weight: bold;
+}
+header ul li {margin: 5px;}
+header ul li>a {       /*тэг <а> не наследует от своего родителя (ul li) св-во color(). Для унификации делаем общее правило для всех <a> {text-decoration: none; color: inherit;}*/
+    padding: 10px 15px 20px;
+}
+header ul li:hover {border-bottom: 4px solid #3070a8; }
+header ul li:hover a {color: #3070a8;}
+
+.banner {
+    background: url(images/bg.jpg); background-size: 100% 100%;
+    height: 590px;
+    color: white;
+    padding: 10px;            /*если не задан padding: или border: , то внутренние элементы будут отталкиваться не от границ родителя, а от внешних элементов */
+    text-align: center;
+    text-transform: uppercase;
+    -font-size: 40px
+}
+.banner p {margin: 100px 0 30px;}
+.banner span:first-child { text-transform: none; font-size: 30px; font-family: Futura}
+.banner span:nth-of-type(even) {display: inline-block; margin: 5px 0 20px; font: 40px "Futura bold" }
+.banner span:last-child { text-transform: none; line-height: 1.5em; font-size: 20px; font-style: italic; font-family: Calibri;}
+.banner button {
+    width: 220px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 2px;
+    color: inherit;
+    border: 1px solid white;
+    text-transform: inherit;
+    font-family: 'Open Sans', sans-serif; font-size: 14px; font-weight: 600;
+}
+
+.banner button:hover{
+    background-color: rgba(255,255,255,.6);
+    color: #355770;
+    border: 1px solid transparent;
+}
+
+/*Price */
+.container-price {
+    width: 1023px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;                  /*наследуется*/
+    font: 18px bold Trebuchet MS, Impact serif; /*наследуется*/
+}
+.container-price h2 {text-align: left; text-transform: uppercase; margin-left: 35px;}
+.center {
+    float: left;
+    width: 296px;
+    border: 3px solid #EE822A;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px #CBE2EF;
+    margin: 10px 0;             /*для отображения верхнего border*/
+    text-transform: uppercase;
+
+    font: 18px bold Trebuchet MS, serif;
+}
+.left, .right {
+    float: left;
+    border: 1px solid #E8EAEC;
+    width: 296px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    -text-align: center;
+    -font: 18px bold Trebuchet MS, serif;
+    margin-top: 30px;
+}
+.center .header {
+    background: #EE822A;
+    color:white;
+    padding: 30px;
+}
+.left .header {background: #38C2D3; color:white; padding: 21px; border-top-left-radius: 5px; }
+.right .header {background: #1EB79B; color:white; padding: 21px; border-top-right-radius: 5px; }
+.price {
+    color: #364A5B;
+    font-family: "Trebuchet MS", serif;
+    font-weight: bold;
+}
+.price span {font-size: 60px;}
+.price .sign {position: relative; top: -32px; font-size: 18px;}
+.price .time {position: relative; top: 5px; font-size: 16px; text-transform: capitalize;}
+.container-price ul {
+    list-style-type: none;
+    text-align: left;
+    text-transform: none;
+    font-weight: normal;
+    padding: 0;
+    margin: auto;
+    width: 90%;
+    color: #898D95;
+    font-size: 14px;
+}
+.container-price li {margin-bottom: 1px; padding: 5px 40px;}
+.container-price li:nth-of-type(odd) {background: #EDF5FD ;}
+.container-price li:nth-of-type(even) {background: #F5F5F6;}
+.container-price li::before{
+    content: url("images/marker.png");
+    padding-right: 15px;
+}
+input[name="enroll"] {
+    background: #EE822A;
+    color: white;
+    width: 85%;
+    margin: 25px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
+    border-bottom: 3px solid #B3570D;
+}
+input[id=standart], input[id=ultimate] {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;}
+input:hover, input:focus { border-color: transparent;}
+
+-#standart {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;} /* если навешивать стили на элемент через id(#), то и остальная работа с этим элементом должна вестись через id(#)*/
+-#standart:hover { border-color: transparent;}
+
+
+/*Testimonials */
+
+.container-testimonials {
+    padding: 50px 0;
+    text-align: center;
+    -width: 80%;
+    background: url("images/bg-1.jpg");
+    margin: auto;
+    white-space: nowrap;
+    min-width: 1200px;
+}
+.container-testimonials h2 {text-transform: uppercase; color: #3271A9; text-align: center;}
+.container-testimonials span {color: #EE822A;}
+.first, .second, .testimonial {display: inline-block;}
+.first, .second {
+    width: 500px;
+    margin: 23px;
+    vertical-align: top;
+    position: relative;
+}
+.testimonial {
+    background: white;
+    vertical-align: top;
+    width: 70%;
+    white-space: normal;
+    margin: 0 20px;
+    padding: 15px;
+}
+.container-testimonials img {height: 100px; vertical-align: top;}
+
+.customer {color: #3271A9; border-bottom: 1px dashed black;}
+.customer::before {
+    content: "-";  /*не ставится длинное тире — (Alt 0151)*/
+}
+.customer::after {
+    content: "Customer";
+    float: right;
+}
+.testimonial::before{
+    position: absolute;
+    top: 35px;
+    left: 100px;
+    border: 15px solid;  /*или border: 15px solid transparent; border-right: 15px solid #ffffff;*/
+    border-color: transparent white transparent transparent;
+    content: '';
+}
