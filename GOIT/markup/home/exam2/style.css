@@ -1,0 +1,394 @@
+body {margin: 0; min-width: 1023px; -font-family: "Trebuchet MS";}
+/*@font-face{*/
+    /*font-family: 'Futura';*/
+    /*src:url(font/futura.woff);*/
+/*}*/
+/*@font-face{*/
+    /*font-family: 'Futura bold';*/
+    /*src: url(font/futura%20bold.ttf);*/
+/*}*/
+
+/* Блок reset (normalize, сброс)*/
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul {list-style-type: none; margin: 0; padding: 0;}
+button {outline: 0; border: none; cursor: pointer;}
+p, h5, h6 {margin: 0;}
+/* Блок reset (normalize, сброс)*/
+
+.main { position: relative; padding: 25px 35px; width: 975px; margin: auto; font-family: "Oxygen Mono", sans-serif;}
+.logo, .menu, .menu > li {display: inline-block; vertical-align: top; }
+
+.logo {width: 156px; height: 56px;  background: url("image/logo without.jpg"); }   /* для резервирования места под картинку */
+.menu {
+    padding: 0;
+    -list-style-type: none; /*в Блоке reset*/
+    margin: 15px 0;
+    float: right;
+    vertical-align: bottom;
+    color: #8c8c8c;
+    font-family: "Oxygen Mono", sans-serif; font-size: 14px;
+}
+.menu > li {position: relative; padding: 5px 25px 20px; } /*padding-bottom увеличенный для того, чтобы при переходе на submenu, последнее не исчезало*/
+.menu > li:last-child {
+    margin: 0 5px;         /* снял верний margin-top и нижний margin-bottom для центрирования по вертикали  */
+    padding: 0;/*сбрасываем padding , установленный для всех Li выше, для центрирования по вертикали */
+}
+.menu button {
+    -position: relative;    /*для доп.регулирования по вертикали*/
+    -top: -6px;
+    padding: 5px;  /*для увеличения размеров кнопки*/
+    color: white;
+    background-color: #ffc451;
+    border-radius: 4px;
+    text-shadow: 0 -1px 1px black;
+    border: 1px solid #ababab; /*чтобы при hover не дергалось меню*/
+}
+.menu button:hover {text-shadow: none; border: 1px solid transparent;}
+.menu > li:hover {color: black;}
+.menu > li:hover .submenu {display: block;}
+
+.submenu {
+    display: none;
+    -z-index: 0;                  /*z-index здесь не нужен, т.к. position: absolute; и поэтому .submenu извлекается из основного потока и накладывается на остальной контент.  */
+    position: absolute;
+    background: #fff;             /*.submenu будет поверх остального контента, только в случае явного задания св-ва background:  */
+    left: 15px;                 /*центрируем относительно верхнего меню. Т.к. .submenu позиционируется по левому краю его родителя, т.е. .menu > li, у которого padding-left: 25px, из которых нужно вычесть marging:5px и padding 5px   */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 146px;
+    margin: 10px 0;
+    color: #707070;
+}
+.submenu::before {      /*стрелка на подменю*/
+    -display: block;           /*по умолчанию для всех позиционированных элементов*/
+    position: absolute;
+    left: 15px;
+    content: "";
+    border: 9px solid transparent;  border-top: 7px solid #dddddd;
+}
+.submenu::after {      /*стрелка на подменю*/
+    position: absolute;
+    left: 15px; top: -1px;
+    content: "";
+    border: 9px solid transparent;  border-top: 7px solid #fff;
+}
+.submenu li {
+    position: relative;   /* для того, чтобы отталкивался .submenu li:hover::after*/
+    font: 12px "Oxygen Mono";
+    margin: 5px;
+    border-bottom: 1px solid #e5e5e5;
+    white-space: nowrap;
+}
+.submenu li a {
+    display: block;  /* для того, чтобы padding: 5px 5px 8px; расширить область <a>, на которую воздействует мышь*/
+    padding: 5px 5px 8px;
+}
+.submenu li a:hover {
+    background: rgba(0,0,0,.1);
+    border-radius: 4px;
+    padding: 5px 5px 12px;
+    margin-bottom: 5px;
+    position: relative;
+    color: #6f6f6f;
+    z-index: 2; /*накладываем на .submenu p*/
+}
+.submenu li a:hover~p {display: block;}
+.submenu p {
+     display: none;
+     position: absolute;
+     top: 20px;
+     font: 10px normal Arial;
+     margin: 0 5px;
+     -z-index: -1;  /* прячем content after под background: rgba(0,0,0,.1) -> .submenu li a:hover */
+     color: #d1d1d1;
+     text-overflow: ellipsis; overflow: hidden;  /*text-overflow работает в том случае, если для блока значение свойства overflow установлено как auto, scroll или hidden. */
+ }
+
+
+
+/*Banner*/
+.banner {margin-top: 85px; white-space: nowrap; border-bottom: 2px solid #e5e5e5; }
+.picter, .description {display: inline-block;}
+.picter {
+    position: relative;
+    width: 305px; height: 200px;
+    border:  solid #dfdfdf;
+    background-color: #f6f6f6;
+    box-shadow: 0 2px 5px 0 #ababab;
+    margin: 0 20px 60px 55px;
+    font: 11px Arial, san-serif;
+}
+.picter img {
+    display: block;
+    position: absolute;     /*для центрирования посредине родительского блока*/
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto ;
+}
+.picter img:hover~button, .picter img:hover~.center {visibility: visible;}
+.picter button, .center {visibility: hidden; -display: none; z-index: 2; position: relative; top: 140px; border-radius: 4px;}
+.picter button {
+    width: 32px; height: 49px;
+    opacity: .5;
+}
+.center {visibility: hidden; display: inline-block; background-color: rgba(98,98,98,.5); width: 215px; height: 49px; vertical-align: top;}
+.center p {display: inline-block; font-size: 11px; color: #e5ae46; margin: 5px; line-height: 2em;}
+.center p::first-line {font: 13px Arial, san-serif; color: white; }
+.center span {color: #676767;}
+.back {background-image: url(image/ButtonBack.png); margin-left: 9px;}
+.forward {background-image: url(image/ButtonForward.jpg);}
+
+.description { width: 550px; text-align: right; white-space: normal; vertical-align: top;}
+.description h1 {font: 38px "Oxygen Mono"; color: #515151; letter-spacing: -3px; margin: 10px 0 5px;}
+.description p {font: 14px "Oxygen Mono"; color: #878787; margin-bottom: 18px; padding-left: 5px;}
+.description div:first-child { padding-left: 65px; border-bottom: 1px solid #f6f6f6;}
+button.trailer {
+    position: relative;
+    background-image: url("image/Trailer Button.jpg");
+    width: 169px; height: 43px;
+    margin: 10px 0; padding: 0;
+    border: 1px solid #ababab; border-radius: 4px;
+}
+button.trailer:hover {background: #000; background-image: url("image/Trailer Button.jpg"); border: 0;}
+.trailer:hover::before {
+    position: absolute;
+    left: -50px; bottom: 12px;
+    width: 16px; height: 17px;
+    content: url(image/gift.jpg);
+}
+.button:hover p {visibility: visible;}
+.button p {color: #afceb4; letter-spacing: -.3px; padding-right: 30px; visibility: hidden;}
+.button a {display: inline-block; border-bottom: 1px solid #afceb4;}
+.button a:hover {color: blue; border-bottom-color: blue;}
+.button a:active {color: aqua; border-bottom-color: aqua;}
+-.button a:visited {color: red;}
+
+ /*Basic*/
+
+.basic {text-align: justify; vertical-align: top; }
+.basic h4 {color: #595959;}
+.block1, .block2, .block3 {display: inline-block; width: 32%;  vertical-align: top;}
+.basic::after {display: inline-block; content: ""; width: 100%;}  /*для того, чтобы сработало св-во .basic {text-align: justify; }*/
+.wrapper {position: relative; border: 1px solid #f0f0f0; height: 147px;}
+.basic img {width: calc(100% - 4px); height: 145px; display: inline-block; margin: 2px;}
+.caption {
+    -background-color: #f0f0f0;
+    border-top: 1px solid transparent; /*для того, чтобы внутренние блоки могли отталкиваться от верхней границы*/
+    width: 100%;
+
+    border-bottom: 5px solid transparent;  /*  подготовим место под зубчики  */
+    background-image:
+    linear-gradient(#f0f0f0, #f0f0f0),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%),
+    linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-repeat: repeat, repeat-x, repeat-x;
+    background-position: 0 0, 0 100%, 0 100%;
+    background-size: auto auto, 10px 10px, 10px 10px;
+    background-clip: padding-box, border-box, border-box;  /*  обрезаем края у общей заливки  */
+    background-origin: padding-box, border-box, border-box, border-box, border-box;  /*  позиционируем зубцы относительно верхней границы, а фон относительно внутреннего отступа  */
+}
+.block2 .caption {
+    background-image:
+    linear-gradient(#f3f3f3, #f3f3f3),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%),
+    linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%);
+}
+.block3 .caption {
+    background-image:
+    linear-gradient(#fff, #fff),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%),
+    linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%);
+}
+
+.caption h5 {font-family: "Oxygen Mono", sans-serif; font-size: 14px; letter-spacing: -.5px; color: #797979; margin: 10px 10px 5px;}
+.caption p {font: 11px Arial, san-serif; color: #a7a7a7; margin: 5px 10px;}
+.content {font: 12px Arial, san-serif; color: #707070; line-height: 1.5em; margin-top: 12px;}
+
+.button_block {
+    width: 48px; height: 48px; line-height: 48px;
+    border-radius: 100%;
+    text-align: center;
+    background: url(image/BasicButton2.png) 50% 50% no-repeat; background-color: white;
+    font-size: 38px;
+    position: absolute;
+    top: 0;  left: 0; right: 0; bottom: 0;
+    display: none;  /* при position: absolute; только block. Можно ли как-то присвоить inline-block;?*/
+    margin: auto;
+    box-shadow: 0 0 0 10px rgba(100,100,100,.5);
+}
+.button_block::before {
+    content: '';
+    position: absolute; left: -50px; top: 12px;
+    width: 28px; height: 28px; border-radius: 100%;
+    display: inline-block; vertical-align: middle;
+    background: url(image/BasicButton1.png) 50% 50% no-repeat; background-color: white;
+    box-shadow: 0 0 0 10px rgba(100,100,100,.5);
+}
+.button_block::after {
+    content: '';
+    position: absolute; right: -50px; top: 12px;
+    width: 28px; height: 28px; border-radius: 100%;
+    display: inline-block; vertical-align: middle;
+    background: url(image/BasicButton3.png) 50% 50% no-repeat; background-color: white;
+    box-shadow: 0 0 0 10px rgba(100,100,100,.5);
+}
+.wrapper img:hover ~ .button_block {display: inline-block;}
+
+/*Tab*/
+.tab {}
+.tab h4 {letter-spacing: -.5px; color: #757575;}
+.bar {  /* Контейнер вкладок:*/
+    position: relative;
+    -width: 600px;
+    -height: 350px;
+    margin: 2em 0;
+    -background-color: #fafafa;
+    border: 1px solid #e6e6e6;
+}
+
+/*Оформление каждой вкладки:*/
+-.bar > * {
+    position: absolute;
+    -border-radius: 5px;
+    -box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 44px;
+    padding: 0px 20px;
+}
+/*Оформление заголовков-язычков вкладок:*/
+-.bar > * > *:first-child {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: -44px;
+    height: 44px;
+    width: 120px;
+    -border-radius: 5px 5px 0px 0px;
+    background-color: inherit;
+    text-align: center;
+    font-size: 14px; font-family: Arial;
+    color: #787878;
+    line-height: 44px;
+    font-weight: normal;
+}
+-.bar > * > *:first-child a {
+    display: block;
+    text-decoration: none;
+    -color: inherit;
+}
+/*Далее надо выстроить заголовки вкладок горизонтально, чтобы они не накладывались друг на друга:*/
+-.bar > *:nth-child(3) > *:first-child { left: 0; }
+-.bar > *:nth-child(1) > *:first-child { left: 120px; }
+-.bar > *:nth-child(2) > *:first-child { left: 240px; }
+
+/*Ну а теперь используем :target и заставим вкладки переключаться:*/
+-.bar > * {               /*стили для неактивной вкладки*/
+    background-color: #fafafa;
+    color: transparent;
+    z-index: 0;
+    transition: all 0.3s ease 0s, z-index 0s 0.3s;
+}
+-.bar > *:target {           /*стили для активной вкладки*/
+    background-color: #fff;
+    color: inherit;
+    z-index: 1;
+    transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
+}
+/*по умолчанию одна из вкладок должна быть открыта*/
+-.bar > *,
+-.bar > *:target ~ *:last-child {
+    background-color: #fafafa;
+    color: transparent;
+    z-index: 0;
+    transition: all 0.3s ease 0s, z-index 0s 0.3s;
+}
+-.bar > *:target,
+-.bar > *:last-child {
+    background-color: #fff;
+    color: inherit;
+    z-index: 1;
+    transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
+}
+#tab1 {font: 14px normal Arial;}
+#tab1 h5 {background-color: #fafafa;}
+#tab1 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 14px 10px; background-color: white;}
+#tab1 > p {margin: 15px 15px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; background-color: white;}
+.tab span {background-color: #ffe7b9; color: #c07e00;}
+
+.inner {white-space: nowrap; font-size: 12px; }
+.inner ul, .inner div {
+    display: inline-block; -font: 12px normal Arial;
+    vertical-align: top;
+    width: 32%; padding-right: 20px;
+    border: 1px solid transparent;
+    box-sizing: border-box;   /*для точного распределения блоков по ширине, иначе не учитываются padding border margin*/
+}
+.inner ul {padding-left: 30px; color: #999; width: 33%;}
+.inner ul li {position: relative; padding-bottom: 5px;}
+.inner ul li:before {
+    content: url(image/TabArrowSign.png);
+    position: absolute;
+    left: -15px;
+}
+.inner ul li::after {   /* накладываем на .inner ul li:before для изменения цвета изображения в его контенте*/
+    content: '';
+    position: absolute;
+    width: 10px; height: 12px;
+    left: -17px; background: rgba(255,255,255,.7);
+}
+.inner div p {display: inline-block; white-space: normal; padding: 0 15px 0 10px; height: 140px; width: 60%; color: #bbb; line-height: 1.5em;}
+.inner div p::first-line {font-weight: 600; vertical-align: top; color: black;}
+
+#tab2, #tab3 {
+    position: absolute;
+    top: 0; left: 0;
+    font: 14px normal Arial;
+}
+#tab2 h5 {position: absolute; left: 90px; width: 98px; border: 1px solid #e6e6e6;}
+#tab3 h5 {position: absolute; left: 188px; width: 98px; border: 1px solid #e6e6e6;}
+#tab2 h5 a, #tab3 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 13px 8px;}
+
+/*Footer*/
+footer {
+    border: 1px solid transparent;
+    border-bottom: 1px solid #e5e5e5;
+    white-space: nowrap;
+    padding-bottom: 30px; position: relative;
+}
+.shadow {display: block; border-top: 1px solid transparent; margin: 20px 0 20px; box-shadow: 0 1px 1px .5px #e5e5e5;}
+footer div {display: inline-block; font: 12px normal Arial; }
+footer h5 {color: #ffad19; font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 22px;}
+footer h6 { font-size: 12px; position: relative;}
+footer h6::before {
+    content: url(image/footer.png);
+    position: absolute;
+    left: -35px;
+}
+footer p {color: #c1c1c1; font-size: 11px; margin: 4px 0 25px;}
+.footer_menu, .footer_content {width: 25%; vertical-align: top; box-sizing: border-box; padding-right: 65px;}
+.latest_articles {width: 49%; white-space: normal; box-sizing: border-box; padding-right: 10px;}
+.footer_menu li, .footer_content li {padding: 10px 0; border-bottom: 1px solid #e5e5e5; color: #8a8a8a;}
+.latest_articles ul {padding-left: 35px; color: #8a8a8a;}
+.latest_articles li {padding-top: 10px;  border-bottom: 1px solid #e5e5e5;}
+
+footer::after {
+    content: '';
+    position: absolute;
+    top: 4px; left: 0;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+footer::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 0;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%; height: 100%;
+    z-index: -2;
+}
+
