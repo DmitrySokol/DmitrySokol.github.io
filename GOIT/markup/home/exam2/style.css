@@ -248,71 +248,6 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     border: 1px solid #e6e6e6;
 }
 
-/*ќформление каждой вкладки:*/
--.bar > * {
-    position: absolute;
-    -border-radius: 5px;
-    -box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    top: 44px;
-    padding: 0px 20px;
-}
-/*ќформление заголовков-€зычков вкладок:*/
--.bar > * > *:first-child {
-    position: absolute;
-    margin: 0px;
-    padding: 0px;
-    top: -44px;
-    height: 44px;
-    width: 120px;
-    -border-radius: 5px 5px 0px 0px;
-    background-color: inherit;
-    text-align: center;
-    font-size: 14px; font-family: Arial;
-    color: #787878;
-    line-height: 44px;
-    font-weight: normal;
-}
--.bar > * > *:first-child a {
-    display: block;
-    text-decoration: none;
-    -color: inherit;
-}
-/*ƒалее надо выстроить заголовки вкладок горизонтально, чтобы они не накладывались друг на друга:*/
--.bar > *:nth-child(3) > *:first-child { left: 0; }
--.bar > *:nth-child(1) > *:first-child { left: 120px; }
--.bar > *:nth-child(2) > *:first-child { left: 240px; }
-
-/*Ќу а теперь используем :target и заставим вкладки переключатьс€:*/
--.bar > * {               /*стили дл€ неактивной вкладки*/
-    background-color: #fafafa;
-    color: transparent;
-    z-index: 0;
-    transition: all 0.3s ease 0s, z-index 0s 0.3s;
-}
--.bar > *:target {           /*стили дл€ активной вкладки*/
-    background-color: #fff;
-    color: inherit;
-    z-index: 1;
-    transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
-}
-/*по умолчанию одна из вкладок должна быть открыта*/
--.bar > *,
--.bar > *:target ~ *:last-child {
-    background-color: #fafafa;
-    color: transparent;
-    z-index: 0;
-    transition: all 0.3s ease 0s, z-index 0s 0.3s;
-}
--.bar > *:target,
--.bar > *:last-child {
-    background-color: #fff;
-    color: inherit;
-    z-index: 1;
-    transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
-}
 #tab1 {font: 14px normal Arial;}
 #tab1 h5 {background-color: #fafafa;}
 #tab1 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 14px 10px; background-color: white;}
@@ -352,12 +287,80 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 #tab3 h5 {position: absolute; left: 188px; width: 98px; border: 1px solid #e6e6e6;}
 #tab2 h5 a, #tab3 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 13px 8px;}
 
+/*ќформление каждой вкладки:*/
+-.bar > * {
+     position: absolute;
+     -border-radius: 5px;
+     -box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+     left: 0px;
+     right: 0px;
+     bottom: 0px;
+     top: 44px;
+     padding: 0px 20px;
+ }
+/*ќформление заголовков-€зычков вкладок:*/
+-.bar > * > *:first-child {
+     position: absolute;
+     margin: 0px;
+     padding: 0px;
+     top: -44px;
+     height: 44px;
+     width: 120px;
+     -border-radius: 5px 5px 0px 0px;
+     background-color: inherit;
+     text-align: center;
+     font-size: 14px; font-family: Arial;
+     color: #787878;
+     line-height: 44px;
+     font-weight: normal;
+ }
+-.bar > * > *:first-child a {
+     display: block;
+     text-decoration: none;
+     -color: inherit;
+ }
+/*ƒалее надо выстроить заголовки вкладок горизонтально, чтобы они не накладывались друг на друга:*/
+-.bar > *:nth-child(3) > *:first-child { left: 0; }
+-.bar > *:nth-child(1) > *:first-child { left: 120px; }
+-.bar > *:nth-child(2) > *:first-child { left: 240px; }
+
+/*Ќу а теперь используем :target и заставим вкладки переключатьс€:*/
+-.bar > * {               /*стили дл€ неактивной вкладки*/
+     background-color: #fafafa;
+     color: transparent;
+     z-index: 0;
+     transition: all 0.3s ease 0s, z-index 0s 0.3s;
+ }
+-.bar > *:target {           /*стили дл€ активной вкладки*/
+     background-color: #fff;
+     color: inherit;
+     z-index: 1;
+     transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
+ }
+/*по умолчанию одна из вкладок должна быть открыта*/
+-.bar > *,
+-.bar > *:target ~ *:last-child {
+     background-color: #fafafa;
+     color: transparent;
+     z-index: 0;
+     transition: all 0.3s ease 0s, z-index 0s 0.3s;
+ }
+-.bar > *:target,
+-.bar > *:last-child {
+     background-color: #fff;
+     color: inherit;
+     z-index: 1;
+     transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
+ }
+
 /*Footer*/
 footer {
+    position: relative;
     border: 1px solid transparent;
     border-bottom: 1px solid #e5e5e5;
     white-space: nowrap;
     padding-bottom: 30px; position: relative;
+    background-color: white;    /*дл€ того чтобы перекрыть shadow1 и shadow2. „тобы увидеть тень - отменить это св-во*/
 }
 .shadow {display: block; border-top: 1px solid transparent; margin: 20px 0 20px; box-shadow: 0 1px 1px .5px #e5e5e5;}
 footer div {display: inline-block; font: 12px normal Arial; }
@@ -374,8 +377,7 @@ footer p {color: #c1c1c1; font-size: 11px; margin: 4px 0 25px;}
 .footer_menu li, .footer_content li {padding: 10px 0; border-bottom: 1px solid #e5e5e5; color: #8a8a8a;}
 .latest_articles ul {padding-left: 35px; color: #8a8a8a;}
 .latest_articles li {padding-top: 10px;  border-bottom: 1px solid #e5e5e5;}
-
-footer::after {
+footer::before {
     content: '';
     position: absolute;
     top: 4px; left: 0;
@@ -383,12 +385,29 @@ footer::after {
     width: 100%; height: 100%;
     z-index: -1;
 }
-footer::before {
+footer::after {
     content: '';
     position: absolute;
     top: 8px; left: 0;
     border-bottom: 1px solid #e5e5e5;
     width: 100%; height: 100%;
     z-index: -2;
+    background-color: white;  /*дл€ того чтобы перекрыть shadow1 и shadow2. „тобы увидеть тень - отменить это св-во*/
+}
+
+.shadow1, .shadow2 {
+    position: absolute;
+    bottom:10px;
+    left:10px;
+    width:50%;  height:10%;
+    z-index:-2;
+    transform:rotate(-2deg);
+    box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+    background-color: white;
+}
+.shadow2 {
+    right:10px;
+    left:auto;
+    transform:rotate(2deg);
 }
 
