@@ -102,11 +102,11 @@ p, h5, h6 {margin: 0;}
      top: 20px;
      font: 10px normal Arial;
      margin: 0 5px;
-     -z-index: -1;  /* прячем content after под background: rgba(0,0,0,.1) -> .submenu li a:hover */
+     -z-index: -1;  /* прячем content after под background: rgba(0,0,0,.1) -> .submenu li a:hover или же .submenu li a:hover : z-index: 2;*/
      color: #d1d1d1;
      text-overflow: ellipsis; overflow: hidden;  /*text-overflow работает в том случае, если для блока значение свойства overflow установлено как auto, scroll или hidden. */
  }
-
+.submenu li:hover {margin-top: 7px;} /*для того чтобы верхний пунк подменю не перекрывал стрелку*/
 
 
 /*Banner*/
@@ -237,24 +237,24 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 .wrapper img:hover ~ .button_block {display: inline-block;}
 
 /*Tab*/
-.tab {}
+
 .tab h4 {letter-spacing: -.5px; color: #757575;}
 .bar {  /* Контейнер вкладок:*/
     position: relative;
-    -width: 600px;
-    -height: 350px;
+    height: 255px;
     margin: 2em 0;
-    -background-color: #fafafa;
+    background-color: #fafafa;
     border: 1px solid #e6e6e6;
 }
 
 #tab1 {font: 14px normal Arial;}
-#tab1 h5 {background-color: #fafafa;}
-#tab1 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 14px 10px; background-color: white;}
-#tab1 > p {margin: 15px 15px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; background-color: white;}
+
+-#tab1 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 14px 10px; background-color: white;}
+.bar > * > p {margin: 15px 15px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; background-color: white; color: #999;}  /*#tab1 > p*/
 .tab span {background-color: #ffe7b9; color: #c07e00;}
 
 .inner {white-space: nowrap; font-size: 12px; }
+.inner img {width: 116px;}
 .inner ul, .inner div {
     display: inline-block; -font: 12px normal Arial;
     vertical-align: top;
@@ -278,80 +278,81 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 .inner div p {display: inline-block; white-space: normal; padding: 0 15px 0 10px; height: 140px; width: 60%; color: #bbb; line-height: 1.5em;}
 .inner div p::first-line {font-weight: 600; vertical-align: top; color: black;}
 
-#tab2, #tab3 {
-    position: absolute;
-    top: 0; left: 0;
-    font: 14px normal Arial;
-}
-#tab2 h5 {position: absolute; left: 90px; width: 98px; border: 1px solid #e6e6e6;}
-#tab3 h5 {position: absolute; left: 188px; width: 98px; border: 1px solid #e6e6e6;}
-#tab2 h5 a, #tab3 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 13px 8px;}
+/*#tab2, #tab3 {*/
+    /*position: absolute;*/
+    /*top: 0; left: 0;*/
+    /*-display: none;*/
+    /*font: 14px normal Arial;*/
+/*}*/
+/*#tab1 h5 {background-color: #fafafa;}*/
+/*#tab2 h5 {position: absolute; left: 90px; width: 98px; border: 1px solid #e6e6e6;}*/
+/*#tab3 h5 {position: absolute; left: 188px; width: 98px; border: 1px solid #e6e6e6;}*/
+/*#tab2 h5 a, #tab3 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 13px 8px;}*/
+/*#tab2 p, #tab3 p {margin-top: 60px;}*/
 
 /*Оформление каждой вкладки:*/
--.bar > * {
+.bar > * {
      position: absolute;
-     -border-radius: 5px;
-     -box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
      left: 0px;
      right: 0px;
      bottom: 0px;
      top: 44px;
-     padding: 0px 20px;
+     font: 14px normal Arial;
+     border-top: inherit;
  }
 /*Оформление заголовков-язычков вкладок:*/
--.bar > * > *:first-child {
+.bar > * > *:first-child {
      position: absolute;
-     margin: 0px;
-     padding: 0px;
-     top: -44px;
-     height: 44px;
-     width: 120px;
-     -border-radius: 5px 5px 0px 0px;
+     top: -45px;     /* с учетом .bar > * : border-top: который наслеует у .bar : border: 1px solid #e6e6e6;*/
+     height: 45px;
+     width: 98px;
      background-color: inherit;
+     border: 1px solid #e6e6e6;
      text-align: center;
-     font-size: 14px; font-family: Arial;
-     color: #787878;
+     font-size: 14px; font-family: Arial; font-weight: normal;
+     color: #c5c5c5;
      line-height: 44px;
-     font-weight: normal;
+     box-sizing: border-box;
  }
--.bar > * > *:first-child a {
+.bar > * > *:first-child a {
      display: block;
      text-decoration: none;
-     -color: inherit;
+     color: inherit;
  }
 /*Далее надо выстроить заголовки вкладок горизонтально, чтобы они не накладывались друг на друга:*/
--.bar > *:nth-child(3) > *:first-child { left: 0; }
--.bar > *:nth-child(1) > *:first-child { left: 120px; }
--.bar > *:nth-child(2) > *:first-child { left: 240px; }
+.bar > *:nth-child(3) > *:first-child { left: 0; }
+.bar > *:nth-child(1) > *:first-child { left: 98px; }
+.bar > *:nth-child(2) > *:first-child { left: 196px; }
 
 /*Ну а теперь используем :target и заставим вкладки переключаться:*/
--.bar > * {               /*стили для неактивной вкладки*/
+.bar > * {               /*стили для неактивной вкладки*/
      background-color: #fafafa;
      color: transparent;
      z-index: 0;
      transition: all 0.3s ease 0s, z-index 0s 0.3s;
  }
--.bar > *:target {           /*стили для активной вкладки*/
+.bar > *:target {           /*стили для активной вкладки*/
      background-color: #fff;
      color: inherit;
      z-index: 1;
      transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
  }
 /*по умолчанию одна из вкладок должна быть открыта*/
--.bar > *,
--.bar > *:target ~ *:last-child {
+.bar > *,
+.bar > *:target ~ *:last-child {
      background-color: #fafafa;
      color: transparent;
      z-index: 0;
      transition: all 0.3s ease 0s, z-index 0s 0.3s;
  }
--.bar > *:target,
--.bar > *:last-child {
+.bar > *:target,
+.bar > *:last-child {
      background-color: #fff;
      color: inherit;
      z-index: 1;
      transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
  }
+.bar > *:target > *:first-child {border-bottom-color: transparent; color: #787878;}   /*для заголовка-язычка активной вкладки*/
 
 /*Footer*/
 footer {
@@ -410,4 +411,5 @@ footer::after {
     left:auto;
     transform:rotate(2deg);
 }
+.bottom {display: block; height: 300px;}
 
