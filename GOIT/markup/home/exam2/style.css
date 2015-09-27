@@ -1,12 +1,4 @@
 body {margin: 0; min-width: 1023px; -font-family: "Trebuchet MS";}
-/*@font-face{*/
-    /*font-family: 'Futura';*/
-    /*src:url(font/futura.woff);*/
-/*}*/
-/*@font-face{*/
-    /*font-family: 'Futura bold';*/
-    /*src: url(font/futura%20bold.ttf);*/
-/*}*/
 
 /* Блок reset (normalize, сброс)*/
 a{
@@ -31,20 +23,20 @@ p, h5, h6 {margin: 0;}
     color: #8c8c8c;
     font-family: "Oxygen Mono", sans-serif; font-size: 14px;
 }
-.menu > li {position: relative; padding: 5px 25px 20px; } /*padding-bottom увеличенный для того, чтобы при переходе на submenu, последнее не исчезало*/
+.menu > li {position: relative; padding: 5px 25px 20px; }
 .menu > li:last-child {
-    margin: 0 5px;         /* снял верний margin-top и нижний margin-bottom для центрирования по вертикали  */
-    padding: 0;/*сбрасываем padding , установленный для всех Li выше, для центрирования по вертикали */
+    margin: 0 5px;
+    padding: 0;
 }
 .menu button {
-    -position: relative;    /*для доп.регулирования по вертикали*/
+    -position: relative;
     -top: -6px;
-    padding: 5px;  /*для увеличения размеров кнопки*/
+    padding: 5px;
     color: white;
     background-color: #ffc451;
     border-radius: 4px;
     text-shadow: 0 -1px 1px black;
-    border: 1px solid #ababab; /*чтобы при hover не дергалось меню*/
+    border: 1px solid #ababab;
 }
 .menu button:hover {text-shadow: none; border: 1px solid transparent;}
 .menu > li:hover {color: black;}
@@ -52,38 +44,38 @@ p, h5, h6 {margin: 0;}
 
 .submenu {
     display: none;
-    -z-index: 0;                  /*z-index здесь не нужен, т.к. position: absolute; и поэтому .submenu извлекается из основного потока и накладывается на остальной контент.  */
+    -z-index: 0;
     position: absolute;
-    background: #fff;             /*.submenu будет поверх остального контента, только в случае явного задания св-ва background:  */
-    left: 15px;                 /*центрируем относительно верхнего меню. Т.к. .submenu позиционируется по левому краю его родителя, т.е. .menu > li, у которого padding-left: 25px, из которых нужно вычесть marging:5px и padding 5px   */
+    background: #fff;
+    left: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
     width: 146px;
     margin: 10px 0;
     color: #707070;
 }
-.submenu::before {      /*стрелка на подменю*/
-    -display: block;           /*по умолчанию для всех позиционированных элементов*/
+.submenu::before {
+    -display: block;
     position: absolute;
     left: 15px;
     content: "";
     border: 9px solid transparent;  border-top: 7px solid #dddddd;
 }
-.submenu::after {      /*стрелка на подменю*/
+.submenu::after {
     position: absolute;
     left: 15px; top: -1px;
     content: "";
     border: 9px solid transparent;  border-top: 7px solid #fff;
 }
 .submenu li {
-    position: relative;   /* для того, чтобы отталкивался .submenu li:hover::after*/
+    position: relative;
     font: 12px "Oxygen Mono";
     margin: 5px;
     border-bottom: 1px solid #e5e5e5;
     white-space: nowrap;
 }
 .submenu li a {
-    display: block;  /* для того, чтобы padding: 5px 5px 8px; расширить область <a>, на которую воздействует мышь*/
+    display: block;
     padding: 5px 5px 8px;
 }
 .submenu li a:hover {
@@ -102,9 +94,9 @@ p, h5, h6 {margin: 0;}
      top: 20px;
      font: 10px normal Arial;
      margin: 0 5px;
-     -z-index: -1;  /* прячем content after под background: rgba(0,0,0,.1) -> .submenu li a:hover или же .submenu li a:hover : z-index: 2;*/
+     -z-index: -1;
      color: #d1d1d1;
-     text-overflow: ellipsis; overflow: hidden;  /*text-overflow работает в том случае, если для блока значение свойства overflow установлено как auto, scroll или hidden. */
+     text-overflow: ellipsis; overflow: hidden;
  }
 .submenu li:hover {margin-top: 7px;} /*для того чтобы верхний пунк подменю не перекрывал стрелку*/
 
@@ -170,34 +162,34 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 .basic {text-align: justify; vertical-align: top; }
 .basic h4 {color: #595959;}
 .block1, .block2, .block3 {display: inline-block; width: 32%;  vertical-align: top;}
-.basic::after {display: inline-block; content: ""; width: 100%;}  /*для того, чтобы сработало св-во .basic {text-align: justify; }*/
+.basic::after {display: inline-block; content: ""; width: 100%;}
 .wrapper {position: relative; border: 1px solid #f0f0f0; height: 147px;}
 .basic img {width: calc(100% - 4px); height: 145px; display: inline-block; margin: 2px;}
 .caption {
     -background-color: #f0f0f0;
-    border-top: 1px solid transparent; /*для того, чтобы внутренние блоки могли отталкиваться от верхней границы*/
+    border-top: 1px solid transparent;
     width: 100%;
 
-    border-bottom: 5px solid transparent;  /*  подготовим место под зубчики  */
+    border-bottom: 5px solid transparent;
     background-image:
-    linear-gradient(#f0f0f0, #f0f0f0),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(#f0f0f0, #f0f0f0),
     linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%),
     linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
     background-repeat: repeat, repeat-x, repeat-x;
     background-position: 0 0, 0 100%, 0 100%;
     background-size: auto auto, 10px 10px, 10px 10px;
-    background-clip: padding-box, border-box, border-box;  /*  обрезаем края у общей заливки  */
-    background-origin: padding-box, border-box, border-box, border-box, border-box;  /*  позиционируем зубцы относительно верхней границы, а фон относительно внутреннего отступа  */
+    background-clip: padding-box, border-box, border-box;
+    background-origin: padding-box, border-box, border-box, border-box, border-box;
 }
 .block2 .caption {
     background-image:
-    linear-gradient(#f3f3f3, #f3f3f3),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(#f3f3f3, #f3f3f3),
     linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%),
     linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%);
 }
 .block3 .caption {
     background-image:
-    linear-gradient(#fff, #fff),  /*  общий фон блока, всегда идёт первым перекрывая всё что под ним (вместо background-color: #f0f0f0;) */
+    linear-gradient(#fff, #fff),
     linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%),
     linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%);
 }
@@ -239,15 +231,6 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 /*Tab*/
 
 .tab h4 {letter-spacing: -.5px; color: #757575;}
-.bar {  /* Контейнер вкладок:*/
-    position: relative;
-    height: 255px;
-    margin: 2em 0;
-    background-color: #fafafa;
-    border: 1px solid #e6e6e6;
-}
-
-#tab1 {font: 14px normal Arial;}
 
 -#tab1 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 14px 10px; background-color: white;}
 .bar > * > p {margin: 15px 15px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; background-color: white; color: #999;}  /*#tab1 > p*/
@@ -269,7 +252,7 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     position: absolute;
     left: -15px;
 }
-.inner ul li::after {   /* накладываем на .inner ul li:before для изменения цвета изображения в его контенте*/
+.inner ul li::after {
     content: '';
     position: absolute;
     width: 10px; height: 12px;
@@ -278,81 +261,74 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 .inner div p {display: inline-block; white-space: normal; padding: 0 15px 0 10px; height: 140px; width: 60%; color: #bbb; line-height: 1.5em;}
 .inner div p::first-line {font-weight: 600; vertical-align: top; color: black;}
 
-/*#tab2, #tab3 {*/
-    /*position: absolute;*/
-    /*top: 0; left: 0;*/
-    /*-display: none;*/
-    /*font: 14px normal Arial;*/
-/*}*/
-/*#tab1 h5 {background-color: #fafafa;}*/
-/*#tab2 h5 {position: absolute; left: 90px; width: 98px; border: 1px solid #e6e6e6;}*/
-/*#tab3 h5 {position: absolute; left: 188px; width: 98px; border: 1px solid #e6e6e6;}*/
-/*#tab2 h5 a, #tab3 h5 a {display: inline-block; font-size: 14px; color: #666; padding: 13px 8px;}*/
-/*#tab2 p, #tab3 p {margin-top: 60px;}*/
+.bar {  /* Контейнер вкладок:*/
+    position: relative;
+    height: 255px;
+    margin: 2em 0;
+    background-color: #fafafa;
+    border: 1px solid #e6e6e6;
+}
+.bar > span {display: none;}
 
 /*Оформление каждой вкладки:*/
-.bar > * {
-     position: absolute;
-     left: 0px;
-     right: 0px;
-     bottom: 0px;
-     top: 44px;
-     font: 14px normal Arial;
-     border-top: inherit;
- }
-/*Оформление заголовков-язычков вкладок:*/
-.bar > * > *:first-child {
-     position: absolute;
-     top: -45px;     /* с учетом .bar > * : border-top: который наслеует у .bar : border: 1px solid #e6e6e6;*/
-     height: 45px;
-     width: 98px;
-     background-color: inherit;
-     border: 1px solid #e6e6e6;
-     text-align: center;
-     font-size: 14px; font-family: Arial; font-weight: normal;
-     color: #c5c5c5;
-     line-height: 44px;
-     box-sizing: border-box;
- }
-.bar > * > *:first-child a {
-     display: block;
-     text-decoration: none;
-     color: inherit;
- }
-/*Далее надо выстроить заголовки вкладок горизонтально, чтобы они не накладывались друг на друга:*/
-.bar > *:nth-child(3) > *:first-child { left: 0; }
-.bar > *:nth-child(1) > *:first-child { left: 98px; }
-.bar > *:nth-child(2) > *:first-child { left: 196px; }
+.bar > div {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 44px;
+    font: 14px normal Arial;
+    border-top: inherit;
+}
 
-/*Ну а теперь используем :target и заставим вкладки переключаться:*/
-.bar > * {               /*стили для неактивной вкладки*/
-     background-color: #fafafa;
-     color: transparent;
-     z-index: 0;
-     transition: all 0.3s ease 0s, z-index 0s 0.3s;
- }
-.bar > *:target {           /*стили для активной вкладки*/
-     background-color: #fff;
-     color: inherit;
-     z-index: 1;
-     transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
- }
-/*по умолчанию одна из вкладок должна быть открыта*/
-.bar > *,
-.bar > *:target ~ *:last-child {
-     background-color: #fafafa;
-     color: transparent;
-     z-index: 0;
-     transition: all 0.3s ease 0s, z-index 0s 0.3s;
- }
-.bar > *:target,
-.bar > *:last-child {
-     background-color: #fff;
-     color: inherit;
-     z-index: 1;
-     transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
- }
-.bar > *:target > *:first-child {border-bottom-color: transparent; color: #787878;}   /*для заголовка-язычка активной вкладки*/
+/*Оформление заголовков-язычков вкладок:*/
+.bar > div > *:first-child {
+    position: absolute;
+    top: -45px;
+    height: 45px;
+    width: 98px;
+    background-color: inherit;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+    font-size: 14px; font-family: Arial; font-weight: normal;
+    color: #c5c5c5;
+    line-height: 44px;
+    box-sizing: border-box;   /*для точного позиционирования*/
+}
+.bar > div > *:first-child a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.bar > div:nth-of-type(1) > *:first-child { left: 0; }
+.bar > div:nth-of-type(2) > *:first-child { left: 98px; }
+.bar > div:nth-of-type(3) > *:first-child { left: 196px; }
+
+
+.bar > div,
+.bar > span:not(:nth-of-type(1)):target ~ div:nth-of-type(1) {       /*стили для неактивной вкладки*/
+    background-color: #fafafa;
+    color: transparent;
+    z-index: 0;            /*вкладка не активная*/
+    transition: all 0.3s ease 0s, z-index 0s 0.3s;
+}
+.bar > div:nth-of-type(1),    /* первую вкладку принудительно делаем активной */    /*стили для активной вкладки*/
+.bar > span:nth-of-type(1):target ~ div:nth-of-type(1),
+.bar > span:nth-of-type(2):target ~ div:nth-of-type(2),
+.bar > span:nth-of-type(3):target ~ div:nth-of-type(3)
+{
+    background-color: #fff;
+    color: inherit;
+    z-index: 1;
+    transition: all 0.3s ease 0.3s, z-index 0s 0.3s;
+}
+
+.bar > div:nth-of-type(1) > *:first-child {border-bottom-color: transparent; color: #787878;}
+.bar > span:not(:nth-of-type(1)):target ~ div:nth-of-type(1) > *:first-child {color: #c5c5c5;}
+.bar > span:nth-of-type(1):target ~ div:nth-of-type(1) > *:first-child,
+.bar > span:nth-of-type(2):target ~ div:nth-of-type(2) > *:first-child,
+.bar > span:nth-of-type(3):target ~ div:nth-of-type(3) > *:first-child {border-bottom-color: transparent; color: #787878;}   /*для заголовка-язычка активной вкладки*/
 
 /*Footer*/
 footer {
@@ -361,7 +337,7 @@ footer {
     border-bottom: 1px solid #e5e5e5;
     white-space: nowrap;
     padding-bottom: 30px; position: relative;
-    background-color: white;    /*для того чтобы перекрыть shadow1 и shadow2. Чтобы увидеть тень - отменить это св-во*/
+    background-color: white;
 }
 .shadow {display: block; border-top: 1px solid transparent; margin: 20px 0 20px; box-shadow: 0 1px 1px .5px #e5e5e5;}
 footer div {display: inline-block; font: 12px normal Arial; }
@@ -393,7 +369,7 @@ footer::after {
     border-bottom: 1px solid #e5e5e5;
     width: 100%; height: 100%;
     z-index: -2;
-    background-color: white;  /*для того чтобы перекрыть shadow1 и shadow2. Чтобы увидеть тень - отменить это св-во*/
+    background-color: white;
 }
 
 .shadow1, .shadow2 {
