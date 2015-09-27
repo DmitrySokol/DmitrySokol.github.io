@@ -8,12 +8,13 @@
     background: -webkit-linear-gradient(top, #fbc98b, #ebbb4d);
     background: -o-linear-gradient(top, #fbc98b, #ebbb4d) ;
     background: linear-gradient(to top, #fbc98b, #ebbb4d) ;
+    white-space: nowrap;
 }
 .query {
     margin: 10px;
     border: none;
     height: 30px;
-    width: 85%;
+    width: calc(100%- 150px);
     border-top: 1px solid #a3a3a3;
     webkit-box-shadow: inset 0 0 1px 1px #e5e5e5;
     box-shadow: inset 0 0 1px 1px #e5e5e5;
@@ -24,8 +25,8 @@ input#query:focus {
     border-top: 1px solid #a3a3a3;
 }
 #find {margin-right: 75px; height: 30px;}
-.arrow-gradient::before {content: '';}
 
+.arrow-gradient::before {content: '';}
 .arrow-gradient::after {
     content: "";
     -height: 100%;

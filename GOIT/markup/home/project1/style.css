@@ -216,7 +216,7 @@ input[name="enroll"] {
     border-bottom: 3px solid #B3570D;
 }
 input[id=standart], input[id=ultimate] {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;}
-input:hover, input:focus { border-color: transparent;}
+input:hover, input:focus { border-color: transparent; cursor: pointer;}
 
 -#standart {background: #3472A7; border-bottom: 3px solid #18446B; margin: 20px;}
 -#standart:hover { border-color: transparent;}
