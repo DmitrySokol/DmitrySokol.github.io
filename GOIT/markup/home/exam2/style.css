@@ -181,13 +181,13 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     background-clip: padding-box, border-box, border-box;
     background-origin: padding-box, border-box, border-box, border-box, border-box;
 }
-.block2 .caption {
+-.block2 .caption {      /*для другого цвета bacground*/
     background-image:
     linear-gradient(#f3f3f3, #f3f3f3),
     linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%),
     linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #f3f3f3 50.5%);
 }
-.block3 .caption {
+-.block3 .caption {         /*для другого цвета bacground*/
     background-image:
     linear-gradient(#fff, #fff),
     linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%),
@@ -227,6 +227,13 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     box-shadow: 0 0 0 10px rgba(100,100,100,.5);
 }
 .wrapper img:hover ~ .button_block {display: inline-block;}
+.basic > div:hover >*:nth-child(2) {
+    background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%),
+    linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%);
+}
+
 
 /*Tab*/
 
