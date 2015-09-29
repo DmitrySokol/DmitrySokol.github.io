@@ -172,6 +172,7 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
 .block1, .block2, .block3 {display: inline-block; width: 32%;  vertical-align: top;}
 .basic::after {display: inline-block; content: ""; width: 100%;}
 .wrapper {position: relative; border: 1px solid #f0f0f0; height: 147px;}
+.paranja {position: absolute; width: 306px; height: 145px; margin: 2px; background-image: url(image/bg_grey.png); transition: 20ms; display: none;}
 .basic img {width: calc(100% - 4px); height: 145px; display: inline-block; margin: 2px;}
 .caption {
     -background-color: #f0f0f0;
@@ -183,6 +184,12 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     linear-gradient(#f0f0f0, #f0f0f0),
     linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%),
     linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+
+    background-image: -webkit-linear-gradient(#f0f0f0, #f0f0f0), -webkit-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -webkit-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -moz-linear-gradient(#f0f0f0, #f0f0f0), -moz-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -moz-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -ms-linear-gradient(#f0f0f0, #f0f0f0), -ms-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -ms-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -o-linear-gradient(#f0f0f0, #f0f0f0), -o-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -o-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+
     background-repeat: repeat, repeat-x, repeat-x;
     background-position: 0 0, 0 100%, 0 100%;
     background-size: auto auto, 10px 10px, 10px 10px;
@@ -234,13 +241,19 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     background: url(image/BasicButton3.png) 50% 50% no-repeat; background-color: white;
     box-shadow: 0 0 0 10px rgba(100,100,100,.5);
 }
+
 .wrapper:hover > .button_block {display: inline-block;} /*если включать по hover на позиционированном элементе (display:absolute)в нашем случае значки кнопок при наведении на них дергаютс€ (блымают), ¬ таком случае элементы нужно вешать на не позиционированный блок*/
+.wrapper:hover > .paranja {display: inline-block;}
 .wrapper > .button_block:hover {cursor: pointer;}
 .basic > div:hover >*:nth-child(2) {
     background-image:
     linear-gradient(#fff, #fff),
     linear-gradient(to top right, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%),
     linear-gradient(to top left, transparent 50%, #f1f1f1 50%, black 50.5%, #fff 50.5%);
+    background-image: -webkit-linear-gradient(#f0f0f0, #f0f0f0), -webkit-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -webkit-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -moz-linear-gradient(#f0f0f0, #f0f0f0), -moz-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -moz-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -ms-linear-gradient(#f0f0f0, #f0f0f0), -ms-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -ms-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
+    background-image: -o-linear-gradient(#f0f0f0, #f0f0f0), -o-linear-gradient(to top right, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%), -o-linear-gradient(to top left, transparent 50%, #d8d8d8 50%, black 50.5%, #f0f0f0 50.5%);
 }
 
 
