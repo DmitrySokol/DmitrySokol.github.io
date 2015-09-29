@@ -109,9 +109,17 @@ p, h5, h6 {margin: 0;}
     width: 305px; height: 200px;
     border:  solid #dfdfdf;
     background-color: #f6f6f6;
-    box-shadow: 0 2px 5px 0 #ababab;
     margin: 0 20px 60px 55px;
     font: 11px Arial, san-serif;
+}
+.picter::after {
+    content: '';
+    display: block;
+    width: 85%; height: 10px;
+    position: absolute;
+    left: 20px; bottom: 0;
+    z-index: -1;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,.6);
 }
 .picter img {
     display: block;
@@ -119,11 +127,10 @@ p, h5, h6 {margin: 0;}
     top: 0; right: 0; bottom: 0; left: 0;
     margin: auto ;
 }
-.picter img:hover~button, .picter img:hover~.center {visibility: visible;}
-.picter button, .center {visibility: hidden; -display: none; z-index: 2; position: relative; top: 140px; border-radius: 4px;}
+.picter button, .center {position: relative; top: 140px; visibility: hidden; -display: none; border-radius: 4px;}
 .picter button {
     width: 32px; height: 49px;
-    opacity: .5;
+    opacity: 0.5;
 }
 .center {visibility: hidden; display: inline-block; background-color: rgba(98,98,98,.5); width: 215px; height: 49px; vertical-align: top;}
 .center p {display: inline-block; font-size: 11px; color: #e5ae46; margin: 5px; line-height: 2em;}
@@ -131,6 +138,7 @@ p, h5, h6 {margin: 0;}
 .center span {color: #676767;}
 .back {background-image: url(image/ButtonBack.png); margin-left: 9px;}
 .forward {background-image: url(image/ButtonForward.jpg);}
+.picter:hover > button, .picter:hover > .center {visibility: visible; }
 
 .description { width: 550px; text-align: right; white-space: normal; vertical-align: top;}
 .description h1 {font: 38px "Oxygen Mono"; color: #515151; letter-spacing: -3px; margin: 10px 0 5px;}
@@ -226,7 +234,8 @@ button.trailer:hover {background: #000; background-image: url("image/Trailer But
     background: url(image/BasicButton3.png) 50% 50% no-repeat; background-color: white;
     box-shadow: 0 0 0 10px rgba(100,100,100,.5);
 }
-.wrapper img:hover ~ .button_block {display: inline-block;}
+.wrapper:hover > .button_block {display: inline-block;} /*если включать по hover на позиционированном элементе (display:absolute)в нашем случае значки кнопок при наведении на них дергаютс€ (блымают), ¬ таком случае элементы нужно вешать на не позиционированный блок*/
+.wrapper > .button_block:hover {cursor: pointer;}
 .basic > div:hover >*:nth-child(2) {
     background-image:
     linear-gradient(#fff, #fff),
