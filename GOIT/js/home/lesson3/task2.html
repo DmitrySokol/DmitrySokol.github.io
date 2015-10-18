@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var range = 10;
+    next: for(var i = 2; i <= range; i++)
+    {
+        for(var j = 2; j < i; j++)
+            if(i % j ==0) continue next;  // if(i % j) не срабатывает (для проверки 4%2 остаток должен быть 0 и должен сработать continue)???
+        document.write(i + ', ');
+    }
+
+</script>
+</body>
+</html>

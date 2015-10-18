@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function lovefunc(flower1, flower2){
+        if((flower1%2 == 0 && flower2%2 != 0) || (flower1%2 != 0 && flower2%2 == 0)) return true;
+        else return false;
+    }
+
+    alert(lovefunc(1, 4));
+    alert(lovefunc(2,2));
+    alert(lovefunc(0,1));
+</script>
+</body>
+</html>
