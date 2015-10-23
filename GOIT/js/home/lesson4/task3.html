@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree dots</title>
+</head>
+<body>
+<script>
+    function truncate(str, maxlength){ //Усечение строки
+        var test = '...';  // &hellip; символ многоточие в HTML
+        return str = (str.length > maxlength)? str.slice(0, maxlength - test.length)+ test : str;
+    }
+    document.write(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) + '<br/>');
+    document.write(truncate("All rights reserved", 20) + '<br/>')
+</script>
+</body>
+</html>

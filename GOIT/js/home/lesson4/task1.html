@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    'use strict'
+    /*var a = 1, b = 1, r ;*/
+    function fib(n)
+    {
+        var a = 1, b = 1;
+        if(n < 3) return a;          //b или 1
+        for(var i = 3; i <= n; i++)
+        {
+            var r = a + b;
+            b = a; a = r;
+        }
+        return r;
+    }
+    /*{  //Долго работает из-за разветвления. Заметное торможение уже на 48.
+        if(n==1 || n==2) {return 1;}
+        else return fib(n-1) + fib(n-2);
+    }*/
+
+   /* { //Цикл заменен рекурсией. Здесь рекурия играет роль счетчика, непосредственно не учавствуя в вычислениях (требеут объявления глоб. переменных
+        if(n < 3) return 1;
+        r = a + b;
+        b = a; a = r;
+        fib(n-1);
+        return r;
+    }*/
+
+    alert(fib(7));
+</script>
+</body>
+</html>

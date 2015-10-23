@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam</title>
+</head>
+<body>
+<script>
+    function checkSpam(str){
+        var test1 = 'spam', test2 = 'sex';
+        var lowerStr = str.toLowerCase();
+
+         /*if(~lowerStr.indexOf(test1) || ~lowerStr.indexOf(test2)) return true
+         else return false;*/
+
+        // то же, но короче
+        return !! (~lowerStr.indexOf(test1) || ~lowerStr.indexOf(test2));
+    }
+    document.write(checkSpam('get new Sex videos') + '<br/>');
+    document.write(checkSpam('[SPAM] How to earn fast money?') + '<br/>');
+    document.write(checkSpam('New PSD template') + '<br/>');
+</script>
+</body>
+</html>
