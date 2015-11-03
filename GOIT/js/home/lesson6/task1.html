@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete CSS class</title>
+</head>
+<body>
+<script>
+    var obj = {
+        className: 'menu open menu my menu'
+    };
+    //Удаление css классов
+    function removeClass(obj, cls) {
+        var str = obj.className;
+        var p = -1;
+        var length = cls.length
+
+        while((p = str.indexOf(cls, p + 1)) != -1) {
+            if(p) {
+                str = str.slice(0, p - 1) + str.slice(p + length);
+            } else {
+                str = str.slice(p + length + 1);
+            }
+        }
+        obj.className = str;
+        return;
+    }
+    removeClass(obj, 'menu');
+    document.write(obj.className);
+
+</script>
+</body>
+</html>

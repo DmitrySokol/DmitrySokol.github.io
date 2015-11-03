@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>palindrome</title>
+</head>
+<body>
+<script>
+    function isPal(string) {
+        var tmp = [];
+
+        tmp = string.toLowerCase().split('');
+        while(~tmp.indexOf(' ')) {  //удаляем пробелы
+            tmp.splice(tmp.indexOf(' '), 1);
+        }
+        string = tmp.join();
+        return string == string.split('').reverse().join('');
+
+    }
+    console.log(isPal('Anna')); // true
+    console.log(isPal('А роза упала на лапу Азора')); //true
+    console.log(isPal('Вася')); //false
+    console.log(isPal('12321')); //true
+    console.log(isPal('123212')); //false
+
+</script>
+</body>
+</html>

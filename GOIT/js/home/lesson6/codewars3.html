@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Your Villain Name</title>
+</head>
+<body>
+<script>
+    function getVillainName(birthday){
+        var name = new Date(birthday);
+        var firstName = ["The Evil",
+            "The Vile",
+            "The Cruel",
+            "The Trashy",
+            "The Despicable",
+            "The Embarrassing",
+            "The Disreputable",
+            "The Atrocious",
+            "The Twirling",
+            "The Orange",
+            "The Terrifying",
+            "The Awkward"]
+        var lastName = ["Mustache",
+            "Pickle",
+            "Hood Ornament",
+            "Raisin",
+            "Recycling Bin",
+            "Potato",
+            "Tomato",
+            "House Cat",
+            "Teaspoon",
+            "Laundry Basket"]
+        return firstName[name.getMonth()] + ' ' + lastName[name.getDate().toString().slice(-1)];
+    }
+
+    document.write(getVillainName('November 18')) // "The Terrifying Teaspoon"
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Анаграммы</title>
+</head>
+<body>
+<script>
+    var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+
+    function anClean(arr) {  //не изменяет исходный массив array
+        var obj = {};
+        var sorted;
+        var result = [];
+
+        for(i = 0; i < arr.length; i++) {
+            sorted = arr[i].split('').sort().join('').toLowerCase();
+            obj[sorted] = arr[i];
+        }
+        for(var key in obj) {
+            result.push(obj[key]);
+        }
+        return result;
+    }
+    console.log(anClean(arr));
+</script>
+</body>
+</html>

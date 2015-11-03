@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object sort</title>
+</head>
+<body>
+<script>
+    //Сортировка объектов
+    var vasya = { name: "Вася", age: 23 };
+    var masha = { name: "Маша", age: 18 };
+    var vovochka = { name: "Вовочка", age: 6 };
+
+    var people = [ vasya , masha , vovochka ];
+
+    people.sort(function(a, b) {
+        return a.age - b.age;
+    });
+
+    document.write(people[0].age + '<br/>');
+    // теперь people: [vovochka, masha, vasya]
+    for(var key in people) {
+        document.write(people[key].name + '; ');
+    }
+
+</script>
+</body>
+</html>
