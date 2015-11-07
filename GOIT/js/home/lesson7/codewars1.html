@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function createFunctions(n) {
+        var callbacks = [];
+
+        for (var i = 0; i < n; i++) {
+            var tmp = function(i) {
+                return function() {
+                    return i;
+                }
+            }(i);
+            callbacks.push(tmp);
+        }
+        return callbacks;
+    }
+    var m = createFunctions(10);
+    alert(m[0]());
+    alert(m[3]());
+    alert(m[7]());
+</script>
+</body>
+</html>

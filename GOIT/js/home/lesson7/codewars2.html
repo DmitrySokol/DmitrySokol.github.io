@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secret</title>
+</head>
+<body>
+<script>
+
+    function createSecretHolder(secret) {
+        var currentSecret = secret;
+
+        return {
+            getSecret : function(){alert(currentSecret);},
+            setSecret : function(secret) {currentSecret = secret;}
+        }
+    }
+    var obj = createSecretHolder(5);
+    obj.getSecret(); // returns 5
+    obj.setSecret(2);
+    obj.getSecret(); // returns 2
+</script>
+</body>
+</html>

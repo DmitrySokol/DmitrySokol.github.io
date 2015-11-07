@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lazy function</title>
+</head>
+<body>
+<script>
+    var make_lazy = function (func) {
+        var args = [].slice.apply(arguments);
+        var theArgs = args.slice(1);
+        return function(){
+            return func.apply(func,theArgs);
+        }
+    };
+
+    // Methods taking in a single parameter
+
+    var double = function (n) {
+        return n * 2;
+    };
+
+    var lazy_value = make_lazy(double, 5);
+    document.write(lazy_value() + '<br/>');
+    //Test.expect(lazy_value() === 10, 'Evaluates the expression when required');
+
+    // Methods taking in multiple parameters
+
+    var add = function (a, b) {
+        return a + b;
+    };
+    var lazy_sum = make_lazy(add, 2, 3);
+    document.write(lazy_sum() + '<br/>');
+    //Test.expect(lazy_sum() === 5, 'Evaluates the expression when required');
+    lazy_sum = make_lazy();
+    document.write(lazy_sum() + '<br/>');
+
+</script>
+</body>
+</html>
