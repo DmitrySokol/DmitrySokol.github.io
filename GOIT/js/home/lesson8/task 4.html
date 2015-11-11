@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object counter</title>
+</head>
+<body>
+<script>
+    function Article() {
+        this.created = new Date();
+        Article.counter++;
+        Article.last = this.created;
+    }
+    Article.counter = 0;
+    Article.showStats = function() {
+        alert('Всего: ' + this.counter + ', Последняя: ' + this.last.toDateString());
+    }
+    new Article();
+    new Article();
+
+    Article.showStats(); // Всего: 2, Последняя: (дата)
+
+    new Article();
+
+    Article.showStats(); // Всего: 3, Последняя: (дата)
+</script>
+</body>
+</html>
