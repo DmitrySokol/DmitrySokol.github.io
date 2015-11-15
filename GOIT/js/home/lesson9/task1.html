@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum</title>
+</head>
+<body>
+<script>
+
+    function sumArgs() {
+        /*arguments.reduce = [].reduce;
+        return arguments.reduce(function(sum, value) {
+            return sum + value;
+        });*/
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3) ); // 6, аргументы переданы через запятую, без массива
+
+</script>
+</body>
+</html>

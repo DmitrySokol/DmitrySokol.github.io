@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum</title>
+</head>
+<body>
+<script>
+    function f(x) {
+        return Math.random() * x; // random для удобства тестирования
+    }
+
+    function makeCaching(f) {
+        var cashe = {};
+        return function(x) {
+            if(x in cashe) {
+                return cashe[x];
+            }
+            return cashe[x] = f.call(this, x);
+        }
+    }
+
+    f = makeCaching(f);
+
+    var a, b;
+
+    a = f(1);
+    b = f(1);
+    alert( a == b ); // true (значение закешировано)
+
+    b = f(2);
+    alert( a == b ); // false, другой аргумент => другое значение
+
+</script>
+</body>
+</html>
