@@ -6,13 +6,12 @@
 </head>
 <body>
 <script>
-    var make_lazy = function (func) {
-        var args = [].slice.apply(arguments);
-        var theArgs = args.slice(1);
-        return function(){
-            return func.apply(func,theArgs);
+    function make_lazy(fn) {
+        var args = [].slice.call(arguments, 1)
+        return function() {
+            return fn.apply(this, args)
         }
-    };
+    }
 
     // Methods taking in a single parameter
 
