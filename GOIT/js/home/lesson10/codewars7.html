@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse It</title>
+</head>
+<body>
+<script>
+    function reverseIt(data){
+        if(typeof data == "string")  {
+            return data.split('').reverse().join('');
+        };
+        if(typeof data == "number") {
+            return +data.toString().split('').reverse().join('');
+        }
+        return data;
+    }
+    /*function reverseIt(data){
+        switch (typeof data){
+            case 'string':return data.split("").reverse().join("");
+            case 'number':return parseFloat(String(data).split("").reverse().join(""));
+            default: return data;
+        }
+    }*/
+
+    document.write(reverseIt('Hello') + '<br/>');
+    document.write(reverseIt(314159) + '<br/>');
+    document.write(reverseIt("314159") + '<br/>');
+    document.write(reverseIt([1,2,3,4]) + '<br/>');
+
+    /*Test.assertSimilar(reverseIt('Hello'), "olleH", 'Not quite')
+    Test.assertSimilar(reverseIt(314159), 951413, 'Not quite')
+    Test.assertSimilar(reverseIt("314159"), "951413", 'Not quite')
+    Test.assertSimilar(reverseIt([]), [], 'Not quite')*/
+</script>
+</body>
+</html>

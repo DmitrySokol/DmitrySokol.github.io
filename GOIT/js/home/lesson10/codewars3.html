@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Descending Order</title>
+</head>
+<body>
+<script>
+    function descendingOrder(n){
+        return n.toString().split('').sort(function(a, b) {
+            return b - a;
+        }).join('');
+        //return parseInt(String(n).split('').sort().reverse().join(''))
+    }
+
+    document.write(descendingOrder(1201) + '<br/>');
+    document.write(descendingOrder(1) + '<br/>');
+    document.write(descendingOrder(123456789) + '<br/>');
+
+    /*Test.assertEquals(descendingOrder(0), 0)
+    Test.assertEquals(descendingOrder(1), 1)
+    Test.assertEquals(descendingOrder(123456789), 987654321)*/
+</script>
+</body>
+</html>

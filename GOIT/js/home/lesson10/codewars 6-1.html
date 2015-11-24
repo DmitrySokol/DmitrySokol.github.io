@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Fibonacci Series</title>
+</head>
+<body>
+<script>
+    function fibonacci(n) {
+        var arr = [0,1], res, a = 0, b = 1, i;
+        if(n < 1) return [];
+        for(i = 3; i <= n; i++) {
+            res = a+b;
+            a = b; b = res;
+            arr.push(res);
+        }
+        return arr;
+    }
+    console.log(fibonacci(4));
+    console.log(fibonacci(-1));
+    //Test.assertEquals(fibonacci(4), [0,1,1,2]);  неправильный тест
+</script>
+</body>
+</html>

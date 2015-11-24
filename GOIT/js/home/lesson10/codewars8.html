@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculating averages</title>
+</head>
+<body>
+<script>
+    var Calculator = {
+        average: function() {
+            //if(!arguments.length) return 0; //(1)
+            return [].reduce.call(arguments, function(sum, item){
+                return sum + item;
+            }, 0)/arguments.length || 0;   // || 0 instead the row (1)
+        }
+    };
+    document.write(Calculator.average(3,4,5) + '<br/>');
+    document.write(Calculator.average(0) + '<br/>');
+    document.write(Calculator.average() + '<br/>');
+</script>
+</body>
+</html>

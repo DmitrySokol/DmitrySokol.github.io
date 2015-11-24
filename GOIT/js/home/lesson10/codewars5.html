@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Duplicates</title>
+</head>
+<body>
+<script>
+
+    function duplicates(arr) {
+        var res = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (~arr.indexOf(arr[i], i + 1) && !~res.indexOf(arr[i])) {
+                res.push(arr[i]);
+            }
+        }
+        return res;
+    }
+
+    /*function duplicates(arr) {
+        return arr.filter(function(v, i) {return arr.indexOf(v) != i && arr.lastIndexOf(v) == i;});
+    }*/
+
+    document.write(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, '5']) + '<br/>');
+    document.write(duplicates([0, 1, 2, 3, 4, 5]) + '<br/>');
+
+    /*Test.expect(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, '5']).length === 3, 'Nope, try again');
+    Test.expect(duplicates([0, 1, 2, 3, 4, 5]).length === 0, 'Nope, try again');*/
+</script>
+</body>
+</html>

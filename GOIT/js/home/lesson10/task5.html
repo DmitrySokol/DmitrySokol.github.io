@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script>
+    function toLongest(str) {
+        var arr = str.split(' ');
+        var max = 0, tmp;
+
+        arr.forEach(function(item, i) {
+            if(item.length > max) {
+                max = item.length;
+                tmp = i;
+            }
+        });
+        return arr[tmp];
+    }
+    alert(toLongest('Web Development Tutorial'));
+</script>
+</body>
+</html>

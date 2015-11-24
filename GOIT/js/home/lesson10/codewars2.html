@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case swapping</title>
+</head>
+<body>
+<script>
+    var str = 'CodEwArs';
+
+    function swap(str) {
+        return str.split('').map(function(item) {
+            return (item === item.toLowerCase()) ? item.toUpperCase() : item.toLowerCase();
+        }).join('');
+    }
+
+    console.log(swap(str)); //cODeWaRS
+
+</script>
+</body>
+</html>

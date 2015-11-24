@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script>
+    function toUpper(str) {
+        var arr = str.split(' ');
+        for(var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+        };
+        return arr.join(' ');
+    }
+    alert(toUpper('the quick brown fox'));
+</script>
+</body>
+</html>

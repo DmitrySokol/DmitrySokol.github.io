@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detect Pangram</title>
+</head>
+<body>
+<script>
+    function isPangram(str) {
+        for(var i = 0; i < 26; i++) {
+            //document.write(String.fromCharCode(97 + i));
+            if(~str.toLowerCase().indexOf(String.fromCharCode(97 + i))) {continue;}
+            else return false;
+        }
+        return true;
+    }
+    var str = "The quick brown fox jumps over the lazy dog."
+    console.log(isPangram(str));
+
+    /*var string = "The quick brown fox jumps over the lazy dog."
+    Test.assertEquals(isPangram(string), true)
+    var string = "This is not a pangram."
+    Test.assertEquals(isPangram(string), false)*/
+</script>
+</body>
+</html>

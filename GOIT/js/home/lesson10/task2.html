@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max Value</title>
+</head>
+<body>
+<script>
+    function getMaxNumber(arr) {
+        var max = - Infinity;
+        arr.forEach(function (item) {
+            if(item > max) {
+                max = item;
+            }
+        });
+        alert(max) ;
+    }
+    getMaxNumber([1,30,40,2,7]); // 40
+    getMaxNumber([1,15,-20,2,-7]); // 15
+
+</script>
+</body>
+</html>

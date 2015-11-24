@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count characters in your string</title>
+</head>
+<body>
+<script>
+    function count(string) {
+        var obj = {};
+        if(!string) return {};
+        for(var i = 0; i < string.length; i++) {
+            if(obj[string[i]]) {
+                obj[string[i]]++;
+            } else {
+                obj[string[i]] = 1;
+            }
+        }
+        return obj;
+    }
+
+    console.log(count('aba'));
+</script>
+</body>
+</html>

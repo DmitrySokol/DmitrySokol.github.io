@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array of classes</title>
+</head>
+<body>
+<script>
+    var arr = ['link', 'menu', 'menu__item', 'menu__item', 'header', 'link', 'footer', 'sidebar', 'link'];
+    var resultTmp = []; var result = [];
+
+    var tmp = {};
+    for(var i = 0; i < arr.length; i++) {
+        arr[i];
+        tmp[arr[i]];
+        if(arr[i] in tmp) {
+            tmp[arr[i]] += 1;
+        } else {
+            tmp[arr[i]] = 1;
+        }
+    }
+
+    for(var key in tmp) {
+        resultTmp.push(tmp[key]);
+    }
+
+    resultTmp.sort(function(a, b) {
+        return b - a;
+    });
+
+    for( i = 0; i < arr.length; i++) {
+        for(key in tmp) {
+            if(resultTmp[i] == tmp[key]) {
+                result.push(key);
+                delete tmp[key];
+            }
+        }
+    }
+    alert(result);
+</script>
+</body>
+</html>

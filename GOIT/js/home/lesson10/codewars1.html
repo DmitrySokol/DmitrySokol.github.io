@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin a cat</title>
+</head>
+<body>
+<script>
+    function sum(a, b) {
+        if(b != undefined) {return a + b;}
+        else {
+            return function() {
+                return a + arguments[0];
+            }
+        }
+    }
+    console.log(sum(2,0)); //2
+    //or
+    console.log(sum(2)(3)); //5
+</script>
+</body>
+</html>
