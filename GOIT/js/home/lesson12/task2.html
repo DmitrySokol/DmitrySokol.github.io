@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeout</title>
+</head>
+<body>
+<script>
+    function printNumbersInterval() {
+        var i = 1;
+
+        var timerID = setTimeout(function run() {
+
+            console.log(i++);
+
+            if(i <= 20) setTimeout(run, 100);
+
+        }, 100);
+
+       /* setTimeout(function() {
+            clearTimeout(timerID);
+        }, 2000);*/
+    }
+    printNumbersInterval();
+</script>
+
+</body>
+</html>
