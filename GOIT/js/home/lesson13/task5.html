@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isRunning</title>
+</head>
+<body>
+<script>
+    'use strict'
+    function Machine(power) {
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function() {
+            // используем внешнюю переменную вместо this
+            self._enabled = true;
+        };
+
+        this.disable = function() {
+            this._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+
+        var waterAmount = 0;
+        var timerID = null;
+
+        this.setWaterAmount = function(amount) {
+            waterAmount = amount;
+        };
+
+        var parentEnable = this.enable;
+        this.enable = function() {
+            parentEnable(); // теперь можно вызывать как угодно, this не важен
+            //this.run();
+        }
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.run = function() {
+            if(!this._enabled) throw  new Error('Кофеварка выключена!!!');
+            timerID = setTimeout(onReady, 1000);
+        };
+    }
+    var coffeeMachine = new CoffeeMachine(10000);
+     //coffeeMachine.run(); // ошибка, кофеварка выключена!
+     coffeeMachine.enable();
+     coffeeMachine.run(); // ...Кофе готов!
+
+</script>
+
+</body>
+</html>
