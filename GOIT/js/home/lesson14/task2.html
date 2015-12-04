@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+</head>
+<body>
+<script>
+    'use strict'
+    var opts = {
+        //width : 200,
+        height : 150
+    };
+
+    function Menu(options) {
+        options = Object.create(options);
+        options.width = options.width || 300; // по умолчанию ширина 300
+
+        alert( options.width );
+        alert( options.height );
+    }
+
+    var menu = new Menu(opts);
+
+
+</script>
+
+</body>
+</html>
