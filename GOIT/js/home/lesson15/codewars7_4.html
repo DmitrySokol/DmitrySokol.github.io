@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    Array.prototype.reverse = function() {
+        for(var i = 0, j = this.length - 1; i < j; i++, j--){
+            var tmp = this[i];
+            this[i] = this[j];
+            this[j] = tmp;
+        }
+        return this;
+    };
+    var input = [1, 2, 3, 4];
+    document.write(input.reverse());
+    document.write(input);
+    /*Test.assertSimilar([1, 2, 3, 4].reverse(), [4,3,2,1]);
+    Test.assertSimilar(["a", "b", "c"].reverse(), ["c", "b", "a"]);
+    Test.assertSimilar([].reverse(), []);*/
+
+</script>
+
+</body>
+</html>

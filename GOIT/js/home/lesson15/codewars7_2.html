@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Singleton = function(){
+        if(Singleton.inst) return Singleton.inst;
+        Singleton.inst = this;
+    };
+
+    var obj1 = new Singleton();
+    var obj2 = new Singleton();
+    document.write(obj1 === obj2); // => true
+    obj1.test = 1;
+    obj2.test; // => 1
+</script>
+
+</body>
+</html>

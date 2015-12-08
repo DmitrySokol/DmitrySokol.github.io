@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function NamedOne(first, last) {
+        this.firstName = first;
+        this.lastName = last;
+        //this.fullName = this.firstName + ' ' + this.lastName;
+        Object.defineProperty(this, 'fullName', {
+            get: function () {
+                return this.firstName + ' ' + this.lastName;
+            },
+            set: function (value) {
+                var split = value.split(' ');
+                if (split.length == 2) {
+                    this.firstName = split[0];
+                    this.lastName = split[1];
+                }
+            }
+        });
+    }
+
+    /*NamedOne.prototype = {
+        get fullName(){
+            return this.firstName+' '+this.lastName;
+        },
+        set fullName(fn){
+            var name = fn.split(' ');
+            if(2 == name.length){
+                this.firstName = name[0];
+                this.lastName  = name[1];
+            }
+        }
+    }*/
+
+    var namedOne = new NamedOne("Naomi","Wang")
+    document.write(namedOne.firstName + '<br/>') // -> "Naomi"
+    document.write(namedOne.lastName + '<br/>')  // -> "Wang"
+    document.write(namedOne.fullName + '<br/>' ) // -> "Naomi Wang"
+
+
+    namedOne.firstName = "John"
+    document.write(namedOne.firstName + '<br/>') // -> "John"
+    namedOne.lastName = "Doe"
+    document.write(namedOne.lastName + '<br/>')  // -> "Doe"
+
+    namedOne.fullName = "Giovanni";
+    document.write(namedOne.fullName + '<br/>')  // -> "Naomi Wang"
+
+    /*var n = new NamedOne('John', 'Doe');
+    Test.assertEquals( n.fullName, "John Doe", "Wrong full name");
+
+    n.firstName = "Bill";
+    Test.assertEquals( n.firstName, "Bill", "Wrong first name");
+    Test.assertEquals( n.fullName, "Bill Doe", "Wrong full name");
+
+    n.lastName = "Board";
+    Test.assertEquals( n.lastName, "Board", "Wrong last name");
+    Test.assertEquals( n.fullName, "Bill Board", "Wrong full name");
+
+    n.fullName = "Giovanni Fabbri";
+    Test.assertEquals( n.fullName, "Giovanni Fabbri", "Wrong full name");
+    Test.assertEquals( n.lastName, "Fabbri", "Wrong last name");
+    Test.assertEquals( n.firstName, "Giovanni", "Wrong first name");
+*/
+
+</script>
+
+</body>
+</html>

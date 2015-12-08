@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj = {
+        person: {
+            name: 'joe',
+            history: {
+                hometown: 'bratislava',
+                bio: {
+                    funFact: 'I like fishing.'
+                }
+            }
+        }
+    };
+    Object.prototype.hash = function(string) {
+        //My
+        var arr = string.split('.');
+        var tmp = this;
+        for(var  i = 0; i < arr.length; i++) {
+            if(!tmp[arr[i]]) return undefined;
+            tmp = tmp[arr[i]];
+        }
+        return tmp;
+        // 1
+        /*var arr = string.split('.');
+        return arr.reduce(function(pv, cv) {
+            return (pv) ? pv[cv] : pv;
+        }, this);*/
+        //2
+        /*var arr = string.split('.');
+        var obj = this;
+        arr.forEach(function(value) {
+            try {
+                return obj = obj[value];
+            }
+            catch(err) {
+                return obj;  // or undefined;
+            }
+        });
+        return obj;*/
+    }
+    document.write(obj.hash('person.name') + '<br/>'); // 'joe'
+    document.write(obj.hash('person.history.bio') + '<br/>'); // { funFact: 'I like fishing.' }
+    document.write(obj.hash('person.history.homeStreet') + '<br/>'); // undefined
+    document.write(obj.hash('person.animal.pet.needNoseAntEater') + '<br/>'); // undefined
+
+    /*Test.expect(obj.hash('person.name') == 'joe');
+    Test.expect(obj.hash('person.game.home') == undefined);*/
+
+</script>
+
+</body>
+</html>
