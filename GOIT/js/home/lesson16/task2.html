@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <form name="search">
+    <label>Поиск по сайту:
+      <input type="text" name="search">
+    </label>
+    <input type="submit" value="Искать!">
+  </form>
+
+  <hr>
+
+  <form name="search-person">
+    Поиск по посетителям:
+    <table id="age-table">
+      <tr>
+        <td>Возраст:</td>
+        <td id="age-list">
+          <label>
+            <input type="radio" name="age" value="young">до 18</label>
+          <label>
+            <input type="radio" name="age" value="mature">18-50</label>
+          <label>
+            <input type="radio" name="age" value="senior">более 50</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Дополнительно:</td>
+        <td>
+          <input type="text" name="info[0]">
+          <input type="text" name="info[1]">
+          <input type="text" name="info[2]">
+        </td>
+      </tr>
+
+    </table>
+
+    <input type="submit" value="Искать!">
+  </form>
+
+<script>
+  var t = document.getElementById('age-table');
+  alert(t.getElementsByTagName('label').length); //1
+  alert(t.querySelector('tr > td').innerHTML); //2
+  alert(document.body.querySelectorAll('form')[1].innerHTML); //3
+
+  var elems = document.body.getElementsByTagName('form'); //4
+  for(var i = 0; i < elems.length; i++) {
+    if(elems[i].matches('[name="search"]')) {
+      alert(elems[i].innerHTML);
+      var formSearch = elems[i];
+    }
+  };
+
+  alert(formSearch.querySelector('input[name="search"]').tagName); //5
+  var e1 = document.getElementsByName('info[0]')[0];  //6
+  alert(e1.tagName);
+  var e2 = document.querySelector('form[name="search-person"] [name="info[0]"]'); //7
+  alert(e1 === e2);
+</script>
+</body>
+
+</html>
