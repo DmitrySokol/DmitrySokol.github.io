@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+
+<script>
+    //Отсортировать таблицу
+    function sort2() {
+        var tbody = document.getElementsByTagName('tbody')[0];
+        var rows = [];
+
+        for (var i = 0; i < tbody.children.length; i++) {
+            rows.push(tbody.children[i]);
+        }
+
+        rows.sort(function(a, b) {
+            return a.lastChild.innerHTML - b.lastChild.innerHTML;
+        })
+
+        for (var i = 0; i < rows.length; i++) {
+            tbody.appendChild(rows[i]);
+        }
+    }
+</script>
+
+</body>
+
+</html>

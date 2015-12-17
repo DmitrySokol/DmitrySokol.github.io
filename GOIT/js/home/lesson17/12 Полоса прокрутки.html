@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<div></div>
+
+<script>
+    //Найти размер прокрутки снизу
+   var element = document.body.children[0];
+    element.scrollBottom = element.scrollHeight - element.clientHeight - element.scrollTop;
+    function isScrollBottom () {
+        if(element.scrollHeight == element.clientHeight ||    // прокрутки нет вообще
+                element.scrollHeight - element.clientHeight + element.scrollTop) {//элемент полностью прокручен
+            return null;
+        }
+    }
+</script>
+
+</body>
+
+</html>

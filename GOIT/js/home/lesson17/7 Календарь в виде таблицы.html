@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+    </style>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<div id="calendar"></div>
+<script>
+   //Создать календарь в виде таблицы   -> узлы через методы DOM.
+    function createCalendar(id, year, month) {
+        var elem = document.getElementById(id);
+        var tab = document.createElement('table');
+        var arr = ['','пн','вт','ср','чт','пт','сб','вс'];
+        var date = new Date(year, month - 1);
+
+        for(var i = 0; i < 6; i++) {
+            var tr = tab.appendChild(document.createElement('tr'));
+            for(var j = 1; j <= 7; j++) {
+                if(!i) {
+                    var th = tr.appendChild(document.createElement('th'));
+                    th.appendChild(document.createTextNode(arr[j]));
+
+                } else if((date.getMonth() +1) == month && (date.getDay() == j || (j == 7 && date.getDay() == 0))){
+                    var td = tr.appendChild(document.createElement('td'));
+
+                    td.appendChild(document.createTextNode(date.getDate()));
+                    date.setDate(date.getDate() + 1);
+                } else {
+                    tr.appendChild(document.createElement('td'));
+                }
+            }
+        }
+        elem.appendChild(tab);
+    }
+   createCalendar('calendar', 2012, 9);
+</script>
+
+</body>
+
+</html>

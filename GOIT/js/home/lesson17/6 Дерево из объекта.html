@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script>
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    var container = document.getElementById('container');
+
+    function createTree(con, d) {  // Создавать узлы через методы DOM.
+
+        function recursion(obj, elem) {
+
+            for(var key in obj) {
+                if(Object.keys(obj)[0] == key) {
+                    elem = elem.appendChild(document.createElement('ul'));
+                }
+
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(key));
+                elem = elem.appendChild(li);
+
+                recursion(obj[key], elem);
+            }
+        }
+        recursion(d, con);
+    }
+
+    createTree(container, data); // создаёт
+</script>
+
+</body>
+
+</html>

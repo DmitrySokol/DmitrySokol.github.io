@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<input type="button" onclick="clockStart()" value="Start">
+
+<input type="button" onclick="clockStop()" value="Stop">
+
+<script>
+   //Цветные Часики с использованием “setInterval”
+    function clock() {
+        var day = new Date();
+        var hh = '<span style="color:red;">' + temp(day.getHours()) + '</span>';
+        var mm = '<span style="color:green;">' + temp(day.getMinutes()) + '</span>';
+        var ss = '<span style="color:blue;">' + temp(day.getSeconds()) + '</span>';
+
+        function temp(value) {
+            if(value < 10) {
+                return '0' + value
+            };
+            return value;
+        }
+        return  hh + ':' + mm + ':' + ss ;
+    }
+   var timerID;
+   var div = document.body.appendChild(document.createElement('div'));
+   var clock1 = div.appendChild(document.createTextNode(''));
+
+   function clockStart() {
+
+       timerID = setInterval(function() {
+           //clock1.data = clock();
+           div.innerHTML = clock();
+       }, 1000);
+       clock();
+   }
+   function clockStop() {
+       clearInterval(timerID);
+       timerID = null;
+   }
+
+</script>
+
+</body>
+
+</html>

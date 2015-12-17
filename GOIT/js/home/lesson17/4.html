@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+    </style>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<table id="table">
+    <tr>
+        <td>Это</td>
+        <td>Все</td>
+        <td>Элементы DOM</td>
+    </tr>
+</table>
+
+<ol id="ol">
+    <li>Вася</li>
+    <li>Петя</li>
+    <li>Маша</li>
+    <li>Даша</li>
+</ol>
+
+<script>
+    function removeChildren(elem) {
+        while(elem.firstChild) {
+            elem.removeChild(elem.firstChild);
+        }
+    }
+
+    removeChildren(table); // очищает таблицу
+    removeChildren(ol); // очищает список
+</script>
+
+</body>
+
+</html>
