@@ -4,56 +4,47 @@
     <meta charset="UTF-8">
     <title>Drop Down List</title>
     <style>
-
-        .sweets__menu {
-            cursor: pointer;
-        }
-
-        .sweets__menu::before {
-            content: '▶ ';
-            color: green;
-        }
-
-        .sweets__list {
+        .menu ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 20px;
             display: none;
         }
-
-        .sweets__list--show .sweets__menu::before {
-            content: '▼ ';
+        .menu .title {
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .menu .title::before {
+            content: '▶ ';
             font-size: 80%;
             color: green;
         }
-
-        .sweets__list--show .sweets__list {
+        .menu.open .title::before {
+            content: '▼ ';
+        }
+        .menu.open ul {
             display: block;
         }
-
     </style>
 </head>
 <body>
-<div class="sweets">
-
-    <span class="sweets__menu">Сладости (нажми меня)!</span>
-
-    <ul class="sweets__list">
+<div id="sweeties" class="menu">
+    <span class="title">Сладости (нажми меня)!</span>
+    <ul>
         <li>Торт</li>
         <li>Пончик</li>
         <li>Пирожное</li>
     </ul>
 
 </div>
+
 <script>
-    var sweets = document.body.querySelector('.sweets');
-    var sweetsMenu = document.body.getElementsByClassName('sweets__menu');
+    var menuElem = document.getElementById('sweeties');
+    var titleElem = menuElem.querySelector('.title');
 
-    sweetsMenu.addEventListener('click', toggleList);
-
-    function toggleList() {
-        sweets.classList.toggle('sweets__list--show');
-    }
-
-
-
+    titleElem.onclick = function() {
+        menuElem.classList.toggle('open');
+    };
 </script>
 </body>
 </html>
