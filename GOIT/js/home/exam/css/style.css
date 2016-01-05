@@ -1,0 +1,216 @@
+body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.wrapper {
+    width: 80%;
+    margin: 50px auto;
+}
+.game-screen{
+	width: 100%;
+	height: 450px;
+	background: url(../images/bg.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+    cursor: crosshair;
+}
+.top {
+    background: #000;
+    width: 100%;
+    height: 100px;
+    text-align: right;
+}
+.top span{
+	display: inline-block;
+	font-family: Courier, monoscape;
+	font-size: 20px;
+	color: #fff;
+	margin-top: 30px;
+}
+.top span:last-of-type{
+	margin-right: 30px;
+}
+.dollar{
+    color: green !important;
+    font-weight: bold;
+}
+.bottom{
+    background: #000;
+    width: 100%;
+    height: 100px;
+}
+#fallingGunman{
+	display: none;
+	position: absolute;
+	right: 735px;
+	animation:none;
+}
+.gunman {
+	position: absolute;
+	right: 20px;
+	top: 150px;
+    z-index: 2;
+    width: 105px;
+    height: 216px;
+    background: url(../images/gunman.png) 1px 0 no-repeat;
+    background-size: cover;
+}
+.gunman-animation{
+	animation: moving 2.0s steps(15) forwards,
+    			walking .9s steps(7) 3 forwards,
+    			stepping .5s 2s steps(2) 2 forwards;
+}
+@keyframes moving{
+    from{right: 0px}
+    to{right: 735px}
+}
+@keyframes walking{
+ 	from{background-position:  -719px 0;}
+ 	to{background-position:  1px 0;}
+}
+@keyframes stepping{
+	from{background-position:  -1028px 0;}
+	to{background-position:  -823px 0;}
+}
+.talking{
+	background: url(../images/gunman.png) -1370px 0 no-repeat;
+	right: 735px;
+}
+
+.falling{
+	animation: falling .7s steps(2) forwards !important;
+}
+
+@keyframes falling{
+	from{background-position:-1455px 0;}
+	to{background-position:-1655px 0;}
+}
+.youWon,
+.youLost{
+	display: none;
+    position: absolute;
+    width: 450px;
+    height: 260px;
+    background: #fff;
+    top: 30%;
+    left: 30%;
+    z-index: 3;
+    font-weight: bold;
+    cursor: auto;
+}
+.youWon:hover,
+.youLost:hover{
+	animation: none;
+}
+.youWon:hover p,
+.youLost:hover p{
+	animation: none;
+}
+.youWon:hover button,
+.youLost:hover button{ 
+	animation: none;
+}
+.youWon button:hover,
+.youLost button:hover{
+opacity: .8;
+cursor: pointer;
+}
+.youWon p,
+.youLost p{
+	color: #000;
+	font-family: Courier, monoscape;
+	font-size: 30px;
+	text-align: center;
+	margin-top: 50px;
+	animation: blink .5s infinite;
+}
+@keyframes blink{
+    from{color:#000}
+    to{color:#fff}
+}
+.youWon button,
+.youLost button {
+    border-radius: 5px;
+    background: green;
+    border: none;
+    padding: 10px 0;
+    width: 250px;
+    margin: 0 auto 10px;
+    display: block;
+    color: #FFE;
+    font-family: Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fire{
+	display: none;
+	position: absolute;
+    top: 100px;
+    right: 600px;
+    background-size: contain;
+    border: 1px solid #0f0;
+    border-radius: 15px;
+    background: white;
+}
+.fire p{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 27px;
+    font-family: Courier;
+    text-align: center;
+    padding-left: 15px;
+}
+.hat{
+	display: none;
+	position: absolute;
+	right: 635px;
+    bottom: 24px;
+    width: 75px;
+	height: 100px;
+	background: url(../images/hat.png) 0 0 no-repeat;
+	opacity: 0;
+	animation: hatOpacity .1s .5s forwards;
+}
+@keyframes hatOpacity{
+	from{opacity: 0}
+	to{opacity: 1}
+}
+.total{
+	display: none;
+	position: absolute;
+    z-index: 3;
+    width: 300px;
+    height: 210px;
+    right: 637px;
+    text-align: center;
+    top: 160px;
+    background: rgba(0,0,0,.9);
+    cursor: auto;
+}
+.total span {
+    color: #fff;
+    font-family: "Courier new", monoscope;
+    font-size: 30px;
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.total button{
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    cursor: pointer;
+    background: url(../images/XClose.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+.total button:focus,
+.total button:active{
+	border: none;
+	outline: none;
+}
